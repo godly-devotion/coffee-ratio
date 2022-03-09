@@ -30,7 +30,7 @@ export class AppComponent implements OnDestroy {
   ) {
     this.matIconRegistry.addSvgIcon(
       `octocat`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/images/octocat.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/images/octocat.svg")
     );
     this.ratio$ = store.select(fromCalc.getRatio);
     this.totalBrew$ = store.select(fromCalc.getTotalBrew);
