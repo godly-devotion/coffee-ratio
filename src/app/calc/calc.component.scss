@@ -31,6 +31,12 @@
     margin-bottom: 0.7rem;
   }
 
+  .mat-form-field {
+    display: block;
+    width: 100%;
+    max-width: 8.2rem;
+  }
+
   .mat-form-field-appearance-outline .mat-form-field-wrapper {
     padding: 0;
   }
@@ -48,39 +54,30 @@
 }
 
 .cr-form {
-  display: grid;
-  grid-template-columns: 11rem 11rem;
-  grid-template-rows: auto;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
   column-gap: 0.25rem;
   row-gap: 0.25rem;
-  grid-template-areas:
-    "header          header"
-    "ratio           brew"
-    "grounds         grounds"
-    "grounds-approx  grounds-approx";
   padding: 1rem;
-  margin: 0 auto auto;
+  max-width: 22rem;
 }
 
 .cr-header {
   grid-area: header;
   display: flex;
+  align-items: center;
   align-content: center;
   justify-content: space-between;
 }
 
-.cr-ratio-card {
-  grid-area: ratio;
-}
-
-.cr-brew-card {
-  grid-area: brew;
-}
-
-.cr-grounds-card {
-  grid-area: grounds;
-}
-
+.cr-header,
+.cr-grounds-card,
 .cr-grounds-approx-card {
-  grid-area: grounds-approx;
+  flex: 2 2 100%;
+}
+
+.cr-ratio-card,
+.cr-brew-card {
+  flex: 1;
 }
