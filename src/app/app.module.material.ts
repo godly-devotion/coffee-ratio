@@ -31,7 +31,7 @@ import { MatTreeModule } from '@angular/material/tree';
 
 export const MaterialModule = [
   // MatAutocompleteModule,
-  // MatButtonModule,
+  MatButtonModule,
   // MatButtonToggleModule,
   MatCardModule,
   // MatCheckboxModule,

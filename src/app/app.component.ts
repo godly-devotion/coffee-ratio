@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, takeUntil, tap } from 'rxjs';
 import * as fromRoot from 'src/app/states';
@@ -23,7 +25,13 @@ export class AppComponent implements OnDestroy {
 
   constructor(
     private store: Store<fromRoot.State>,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
   ) {
+    this.matIconRegistry.addSvgIcon(
+      `octocat`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/images/octocat.svg")
+    );
     this.ratio$ = store.select(fromCalc.getRatio);
     this.totalBrew$ = store.select(fromCalc.getTotalBrew);
     this.grounds$ = store.select(fromCalc.getGrounds);

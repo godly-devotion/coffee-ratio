@@ -6,6 +6,24 @@
 }
 
 :host ::ng-deep {
+  .mat-headline {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .mat-button,
+  .mat-icon-button {
+    display: flex;
+    justify-content: center;
+
+    .mat-button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   .mat-card-subtitle {
     display: flex;
     align-items: center;
@@ -46,7 +64,9 @@
 
 .cr-header {
   grid-area: header;
-  margin: 0;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
 }
 
 .cr-ratio-card {

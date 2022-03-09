@@ -1,6 +1,15 @@
 <form [formGroup]="form"
       class="cr-form">
-  <h1 class="cr-header">Coffee Ratio</h1>
+  <div class="cr-header">
+    <span class="mat-headline">Coffee Ratio</span>
+    <a mat-icon-button
+       target="_blank"
+       href="https://github.com/godly-devotion/coffee-ratio">
+      <mat-icon svgIcon="octocat"
+                matTooltip="View on GitHub">
+      </mat-icon>
+    </a>
+  </div>
 
   <mat-card class="cr-ratio-card">
     <mat-card-subtitle>1. RATIO</mat-card-subtitle>
@@ -57,7 +66,6 @@
       <span>APPROX. GROUNDS</span>
       <mat-icon matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
                 matTooltipShowDelay="0"
-                matTooltipHideDelay="2000"
                 matTooltipPosition="above">
         info
       </mat-icon>
