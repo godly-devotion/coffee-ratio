@@ -31,7 +31,11 @@ export class AppComponent implements OnDestroy {
     this.groundsInML$ = store.select(fromCalc.getGroundsInML);
     this.groundsInCups$ = store.select(fromCalc.getGroundsInCups);
     store.select(fromCalc.getBrewBackgroundColor).pipe(
-      tap(color => document.getElementById('body')!.style.background = color),
+      tap(color => {
+        document.getElementById('body')!.style.background = color;
+        const element = document.querySelector('meta[name="theme-color"]');
+        element!.setAttribute('content', color);
+      }),
       takeUntil(this.destroy$)
     ).subscribe();
   }
