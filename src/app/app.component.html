@@ -1,0 +1,9 @@
+<app-calc [ratio]="(ratio$|async)!"
+          [brew]="(totalBrew$|async)!"
+          [grounds]="(grounds$|async)!"
+          [groundsInOunces]="(groundsInOunces$|async)!"
+          [groundsInML]="(groundsInML$|async)!"
+          [groundsInCups]="(groundsInCups$|async)!"
+          (updateRatio)="updateRatio($event)"
+          (updateTotalBrew)="updateTotalBrew($event)">
+</app-calc>
