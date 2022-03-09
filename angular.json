@@ -59,8 +59,8 @@
               "src/assets/images/favicon/mstile-150x150.png",
               "src/assets/images/favicon/favicon-16x16.png",
               "src/assets/images/favicon/favicon-32x32.png",
-              "src/assets/images/favicon/favicon.ico",
               "src/assets/images/octocat.svg",
+              "src/favicon.ico",
               "src/browserconfig.xml",
               "src/site.webmanifest",
               "src/assets"
