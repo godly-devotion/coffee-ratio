@@ -27,8 +27,8 @@ export class CalcComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      ratio: [this.ratio, [Validators.required, Validators.pattern("^[0-9]*$")]],
-      brew: [this.brew, [Validators.required, Validators.pattern("^[0-9]*$")]]
+      ratio: [this.ratio, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(3)]],
+      brew: [this.brew, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(0)]]
     }, {
       validators: [this.canCalc]
     });
@@ -69,16 +69,8 @@ export class CalcComponent implements OnInit, OnDestroy {
       return { ratioEmtpy: 'Ratio is required' };
     }
 
-    if (ratioControl.value < 1) {
-      return { invalidRatio: 'Ratio must be greater than 0' };
-    }
-
     if (!brewControl.value) {
       return { brewEmpty: 'Brew is required.' };
-    }
-
-    if (brewControl.value < 1) {
-      return { invalidBrew: 'Brew must be greater than 0' };
     }
 
     return null;

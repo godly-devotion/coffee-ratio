@@ -32,7 +32,7 @@ export class CalcEffects {
   updateRatio$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CalcActions.updateRatio),
-      filter(({ ratio }) => ratio > 0),
+      filter(({ ratio }) => ratio > 2),
       tap(({ ratio }) => localStorage.setItem('cr-ratio', ratio.toString()))
     ),
     { dispatch: false }
