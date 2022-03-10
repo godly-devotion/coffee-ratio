@@ -10,41 +10,35 @@ export const calcFeatureKey = 'calc';
 export interface CalcState {
   ratio: number;
   totalBrew: number;
-  grounds: number;
 }
 
 export const initialState: CalcState = {
   ratio: 16,
-  totalBrew: 500,
-  grounds: 35.71
+  totalBrew: 500
 };
 
 export const reducer = createReducer(
   initialState,
   on(CalcActions.restoreRatioSuccess, (state, { ratio }) => {
     return update(state, {
-      ratio: { $set: ratio },
-      grounds: { $set: calculateGrounds(state.totalBrew, ratio) }
+      ratio: { $set: ratio }
     });
   }),
   on(CalcActions.restoreTotalBrewSuccess, (state, { brew }) => {
     return update(state, {
-      totalBrew: { $set: brew },
-      grounds: { $set: calculateGrounds(brew, state.ratio) }
+      totalBrew: { $set: brew }
     });
   }),
   on(CalcActions.updateRatio, (state, { ratio }) => {
     const ratioVal = ratio > 0 ? ratio : 0;
     return update(state, {
-      ratio: { $set: ratioVal },
-      grounds: { $set: calculateGrounds(state.totalBrew, ratioVal) }
+      ratio: { $set: ratioVal }
     });
   }),
   on(CalcActions.updateTotalBrew, (state, { brew }) => {
     const brewVal = brew > 0 ? brew : 0;
     return update(state, {
-      totalBrew: { $set: brewVal },
-      grounds: { $set: calculateGrounds(brewVal, state.ratio) }
+      totalBrew: { $set: brewVal }
     });
   }),
 );
@@ -72,7 +66,7 @@ export const getTotalBrew = createSelector(
 
 export const getGrounds = createSelector(
   getCalcState,
-  (state) => state.grounds
+  (state) => calculateGrounds(state.totalBrew, state.ratio)
 );
 
 // Custom Selectors
