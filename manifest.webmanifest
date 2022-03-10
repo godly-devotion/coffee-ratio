@@ -2,9 +2,9 @@
   "name": "Coffee Ratio",
   "short_name": "Coffee Ratio",
   "description": "Calculate amount of beans needed for home brewed coffee, even without a scale!",
-  "display": "standalone",
   "theme_color": "#d9bda3",
   "background_color": "#d9bda3",
+  "display": "standalone",
   "icons": [
     {
       "src": "assets/images/favicon/android-chrome-192x192.png",

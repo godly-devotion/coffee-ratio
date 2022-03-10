@@ -1,0 +1,131 @@
+{
+  "configVersion": 1,
+  "timestamp": 1646947181723,
+  "index": "/coffee-ratio/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/coffee-ratio/favicon.ico",
+        "/coffee-ratio/index.html",
+        "/coffee-ratio/main.cef4231bb5b4bd36.js",
+        "/coffee-ratio/manifest.webmanifest",
+        "/coffee-ratio/polyfills.e4ce7231598ae42b.js",
+        "/coffee-ratio/runtime.e63b97180409cc32.js",
+        "/coffee-ratio/styles.614676d194426574.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/coffee-ratio/assets/images/favicon/android-chrome-192x192.png",
+        "/coffee-ratio/assets/images/favicon/android-chrome-512x512.png",
+        "/coffee-ratio/assets/images/favicon/apple-touch-icon.png",
+        "/coffee-ratio/assets/images/favicon/favicon-16x16.png",
+        "/coffee-ratio/assets/images/favicon/favicon-32x32.png",
+        "/coffee-ratio/assets/images/favicon/mstile-150x150.png",
+        "/coffee-ratio/assets/images/octocat.svg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1125-2436.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1136-640.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1170-2532.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1242-2208.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1242-2688.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1284-2778.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1334-750.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1536-2048.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1620-2160.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1668-2224.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1668-2388.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-1792-828.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2048-1536.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2048-2732.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2160-1620.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2208-1242.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2224-1668.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2388-1668.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2436-1125.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2532-1170.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2688-1242.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2732-2048.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-2778-1284.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-640-1136.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-750-1334.jpg",
+        "/coffee-ratio/assets/images/splash/apple-splash-828-1792.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/coffee-ratio/assets/images/favicon/android-chrome-192x192.png": "3a04dd03b318e91bac4178b91e359584b00305c0",
+    "/coffee-ratio/assets/images/favicon/android-chrome-512x512.png": "79d55af35bf58a4632c4f1365e4fc067494f4a2b",
+    "/coffee-ratio/assets/images/favicon/apple-touch-icon.png": "690bd653ea9623441f022f6296fffa20287f2db7",
+    "/coffee-ratio/assets/images/favicon/favicon-16x16.png": "e4f3d87bdbdc64b6f5ae27c631e88ba2e112bc09",
+    "/coffee-ratio/assets/images/favicon/favicon-32x32.png": "380854ad464f85f3bbe2fcecad8f02d9d8b76339",
+    "/coffee-ratio/assets/images/favicon/mstile-150x150.png": "874101a830f1a5faccb927078b5d1ca990f4630a",
+    "/coffee-ratio/assets/images/octocat.svg": "5dec89dc9dbcebff4a2aeddb9426c7a8e237ca16",
+    "/coffee-ratio/assets/images/splash/apple-splash-1125-2436.jpg": "fbe2278132b4716d7f93c068a45e698d3704cd7b",
+    "/coffee-ratio/assets/images/splash/apple-splash-1136-640.jpg": "66b1943a4b6edf553d06b949e39ca419d1da7317",
+    "/coffee-ratio/assets/images/splash/apple-splash-1170-2532.jpg": "84646e0fae7dce2b3ee5c6b2f1fe808a9cfcf4a7",
+    "/coffee-ratio/assets/images/splash/apple-splash-1242-2208.jpg": "dc2d213eab0a1191d22d90ed82431edb82f89f9a",
+    "/coffee-ratio/assets/images/splash/apple-splash-1242-2688.jpg": "0a105d7f614ce575683d8c0ca931f4cfba8c5c4f",
+    "/coffee-ratio/assets/images/splash/apple-splash-1284-2778.jpg": "fc7519e746409add9f16d0498fe03f2be18ed581",
+    "/coffee-ratio/assets/images/splash/apple-splash-1334-750.jpg": "cec625a65c0cac263c739ca0a1314e9062444976",
+    "/coffee-ratio/assets/images/splash/apple-splash-1536-2048.jpg": "d5c89fa76ee1ab50c6b66980ec4e9cd05da434f0",
+    "/coffee-ratio/assets/images/splash/apple-splash-1620-2160.jpg": "46558c6a3a5a76b29e6acc1ce5656dc8a763981c",
+    "/coffee-ratio/assets/images/splash/apple-splash-1668-2224.jpg": "e296c2fd76e3ddc862e1a64aa35df1c599f97352",
+    "/coffee-ratio/assets/images/splash/apple-splash-1668-2388.jpg": "a6ca9890911b943736d730b2a52f3f2c97bf8d4b",
+    "/coffee-ratio/assets/images/splash/apple-splash-1792-828.jpg": "0502a1f599bca2901851dab23c2e7e1f05b54c8e",
+    "/coffee-ratio/assets/images/splash/apple-splash-2048-1536.jpg": "98688eca57312eee2c80d06297a3169c18950047",
+    "/coffee-ratio/assets/images/splash/apple-splash-2048-2732.jpg": "0db927f8de756dfb99652611387af7ce9401959c",
+    "/coffee-ratio/assets/images/splash/apple-splash-2160-1620.jpg": "26420645addafba3dbec2c92c9058b4872d892a7",
+    "/coffee-ratio/assets/images/splash/apple-splash-2208-1242.jpg": "fa58eca1751a63b0f510c858f0ed4a10ddcd30d8",
+    "/coffee-ratio/assets/images/splash/apple-splash-2224-1668.jpg": "86d47ef4dda926b0de7b7098ffd9d1cd47cc4c83",
+    "/coffee-ratio/assets/images/splash/apple-splash-2388-1668.jpg": "6409cb1818c7647ae7d7f1f95ae51fc30517a492",
+    "/coffee-ratio/assets/images/splash/apple-splash-2436-1125.jpg": "9cd7a4d37343738440867ca8e7ad1dda4b8e0538",
+    "/coffee-ratio/assets/images/splash/apple-splash-2532-1170.jpg": "4ba86fce1c49f3d04cfb31306a4f0bea9a59fe5c",
+    "/coffee-ratio/assets/images/splash/apple-splash-2688-1242.jpg": "d38548b90ea899ca4ad35285d06d395b033c8223",
+    "/coffee-ratio/assets/images/splash/apple-splash-2732-2048.jpg": "c30d2bf3177a3d230b670c610625f2fe306d8faa",
+    "/coffee-ratio/assets/images/splash/apple-splash-2778-1284.jpg": "3ff6acd41de70e8f86116d8d31811ded4b038b07",
+    "/coffee-ratio/assets/images/splash/apple-splash-640-1136.jpg": "6ee54fd4d0dddcb3ec348e8453c941e70a193890",
+    "/coffee-ratio/assets/images/splash/apple-splash-750-1334.jpg": "aceceeba03c01545eb36a21e616bb312e94267ab",
+    "/coffee-ratio/assets/images/splash/apple-splash-828-1792.jpg": "22f5ab5260f3b07ef0549d5d21d8f9fccb630809",
+    "/coffee-ratio/favicon.ico": "b8e18c1c4acd8c5632afc53b66377ac6a9f481e8",
+    "/coffee-ratio/index.html": "5addc8fa0319c777ccd048aff19e07b32ca25a9f",
+    "/coffee-ratio/main.cef4231bb5b4bd36.js": "d8704eb195e083f58634e25b199a190cf3c27ff3",
+    "/coffee-ratio/manifest.webmanifest": "2c4714e66bda06ca016bfc3ed46b6e589eb4e268",
+    "/coffee-ratio/polyfills.e4ce7231598ae42b.js": "3a9f454f985da510169e70c042622bbb62526eb5",
+    "/coffee-ratio/runtime.e63b97180409cc32.js": "0e18796e87b11b14024b1bc6cdfeafc95d30fdd3",
+    "/coffee-ratio/styles.614676d194426574.css": "0b2210b47507958d59668a40e84535c27959aac3"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
