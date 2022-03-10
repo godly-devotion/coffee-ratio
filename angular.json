@@ -53,17 +53,10 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets/images/favicon/android-chrome-192x192.png",
-              "src/assets/images/favicon/android-chrome-512x512.png",
-              "src/assets/images/favicon/apple-touch-icon.png",
-              "src/assets/images/favicon/mstile-150x150.png",
-              "src/assets/images/favicon/favicon-16x16.png",
-              "src/assets/images/favicon/favicon-32x32.png",
-              "src/assets/images/octocat.svg",
+              "src/assets",
               "src/favicon.ico",
               "src/browserconfig.xml",
-              "src/site.webmanifest",
-              "src/assets"
+              "src/site.webmanifest"
             ],
             "styles": [
               "src/styles-material-theme.scss",
