@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1647016450173,
+  "timestamp": 1647049215424,
   "index": "/coffee-ratio/index.html",
   "assetGroups": [
     {
@@ -104,7 +104,7 @@
     "/coffee-ratio/favicon.ico": "b8e18c1c4acd8c5632afc53b66377ac6a9f481e8",
     "/coffee-ratio/index.html": "d8618a37748f8c163582e34bf176cd75b77d1078",
     "/coffee-ratio/main.0ad62525a0130410.js": "17801ee53438b2c6526837d1159f749d3e84c169",
-    "/coffee-ratio/manifest.webmanifest": "2c4714e66bda06ca016bfc3ed46b6e589eb4e268",
+    "/coffee-ratio/manifest.webmanifest": "b0bb07a0128ce361e77e6bba8a6d8283b54ef559",
     "/coffee-ratio/polyfills.e4ce7231598ae42b.js": "3a9f454f985da510169e70c042622bbb62526eb5",
     "/coffee-ratio/runtime.e63b97180409cc32.js": "0e18796e87b11b14024b1bc6cdfeafc95d30fdd3",
     "/coffee-ratio/styles.20743a19aee5b2d0.css": "d71a9e254b0cf7a1afc012ca40342d1f9291c6a6"

@@ -5,6 +5,8 @@
   "theme_color": "#d9bda3",
   "background_color": "#d9bda3",
   "display": "standalone",
+  "scope": "/coffee-ratio/",
+  "start_url": "/coffee-ratio/",
   "icons": [
     {
       "src": "assets/images/favicon/android-chrome-192x192.png",
