@@ -4,9 +4,21 @@
 
 https://godly-devotion.github.io/coffee-ratio/
 
-Calculate amount of beans needed for home brewed coffee, even without a scale! Built with PWA support, it can work even without an internet connection.
+Calculate amount of beans needed for home brewed coffee, even without a scale! Built with PWA support, it works even without an internet connection.
+
+## Add to Home Screen
+
+### iOS
+
+Open Safari app and navigate to Coffee Ratio. From the website, tap the Share button, then tap "Add to Home Screen".
+
+### Android
+
+Open Chrome app and navigate to Coffee Ratio. From the website, tap the Chrome’s Settings menu found in the top-right corner (three vertical dots), then tap "Add to Home screen".
 
 ## For Developers
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ### Development server
 
