@@ -32,9 +32,7 @@
   }
 
   .mat-form-field {
-    display: block;
     width: 100%;
-    max-width: 8.2rem;
   }
 
   .mat-form-field-appearance-outline .mat-form-field-wrapper {
@@ -43,6 +41,7 @@
 
   .mat-form-field-infix {
     border-top: 0.3rem solid transparent;
+    width: 100%;
   }
 
   .mat-icon {
@@ -54,13 +53,30 @@
 }
 
 .cr-form {
-  display: flex;
-  align-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header"
+    "ratio"
+    "brew"
+    "grounds"
+    "grounds-approx";
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   padding: 1rem;
+  margin: 0 auto auto;
   max-width: 22rem;
+}
+
+@media (min-width: 375px) {
+  .cr-form {
+    grid-template-areas:
+      "header          header"
+      "ratio           brew"
+      "grounds         grounds"
+      "grounds-approx  grounds-approx";
+  }
 }
 
 .cr-header {
@@ -71,13 +87,18 @@
   justify-content: space-between;
 }
 
-.cr-header,
-.cr-grounds-card,
-.cr-grounds-approx-card {
-  flex: 2 2 100%;
+.cr-ratio-card {
+  grid-area: ratio;
 }
 
-.cr-ratio-card,
 .cr-brew-card {
-  flex: 1;
+  grid-area: brew;
+}
+
+.cr-grounds-card {
+  grid-area: grounds;
+}
+
+.cr-grounds-approx-card {
+  grid-area: grounds-approx;
 }
