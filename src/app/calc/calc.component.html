@@ -94,4 +94,34 @@
       </mat-form-field>
     </mat-card-content>
   </mat-card>
+
+  <mat-card class="cr-stopwatch-card">
+    <mat-card-subtitle>STOPWATCH</mat-card-subtitle>
+    <mat-card-content>
+      <div class="cr-stopwatch-container">
+        <mat-form-field floatLabel="never"
+                        appearance="outline">
+          <input matInput
+                 readonly
+                 autocomplete="off"
+                 [value]="stopwatchDuration | stopwatchDuration">
+        </mat-form-field>
+
+        <button mat-stroked-button
+                class="cr-stopwatch-button"
+                (click)="resetStopwatch.emit()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+
+        <button mat-stroked-button
+                class="cr-stopwatch-button"
+                [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
+                [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
+                (click)="toggleStopwatchRun.emit()">
+          <mat-icon *ngIf="stopwatchStatus === StopwatchStatus.Running">pause</mat-icon>
+          <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </form>

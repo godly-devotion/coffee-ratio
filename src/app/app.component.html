@@ -4,6 +4,10 @@
           [groundsInOunces]="(groundsInOunces$|async)!"
           [groundsInML]="(groundsInML$|async)!"
           [groundsInCups]="(groundsInCups$|async)!"
+          [stopwatchStatus]="(stopwatchStatus$|async)!"
+          [stopwatchDuration]="(stopwatchDuration$|async)!"
           (updateRatio)="updateRatio($event)"
-          (updateTotalBrew)="updateTotalBrew($event)">
+          (updateTotalBrew)="updateTotalBrew($event)"
+          (toggleStopwatchRun)="toggleStopwatchRun()"
+          (resetStopwatch)="resetStopwatch()">
 </app-calc>

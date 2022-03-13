@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { distinctUntilChanged, filter, Subject, takeUntil, tap } from 'rxjs';
+import { StopwatchStatus } from 'src/app/data-models/enum';
 
 @Component({
   selector: 'app-calc',
@@ -15,9 +16,14 @@ export class CalcComponent implements OnInit, OnDestroy {
   @Input() groundsInOunces = 0;
   @Input() groundsInML = 0;
   @Input() groundsInCups = 0;
+  @Input() stopwatchStatus = StopwatchStatus.NotStarted;
+  @Input() stopwatchDuration = 0;
   @Output() updateRatio = new EventEmitter<number>();
   @Output() updateTotalBrew = new EventEmitter<number>();
+  @Output() toggleStopwatchRun = new EventEmitter();
+  @Output() resetStopwatch = new EventEmitter();
   form!: FormGroup;
+  StopwatchStatus = StopwatchStatus;
 
   private destroy$ = new Subject<boolean>();
 
@@ -35,14 +41,14 @@ export class CalcComponent implements OnInit, OnDestroy {
 
     this.form.controls['ratio'].valueChanges.pipe(
       distinctUntilChanged(),
-      filter(ratio => !isNaN(ratio)),
+      filter(ratio => !Number.isNaN(ratio)),
       tap(ratio => this.updateRatio.emit(ratio)),
       takeUntil(this.destroy$)
     ).subscribe();
 
     this.form.controls['brew'].valueChanges.pipe(
       distinctUntilChanged(),
-      filter(brew => !isNaN(brew)),
+      filter(brew => !Number.isNaN(brew)),
       tap(brew => this.updateTotalBrew.emit(brew)),
       takeUntil(this.destroy$)
     ).subscribe();

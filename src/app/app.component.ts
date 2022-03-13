@@ -6,6 +6,7 @@ import { Observable, Subject, takeUntil, tap } from 'rxjs';
 import * as fromRoot from 'src/app/states';
 import * as fromCalc from 'src/app/states/calc/calc.reducer';
 import * as CalcActions from 'src/app/states/calc/calc.actions';
+import { StopwatchStatus } from './data-models/enum';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,8 @@ export class AppComponent implements OnDestroy {
   groundsInOunces$: Observable<number>;
   groundsInML$: Observable<number>;
   groundsInCups$: Observable<number>;
+  stopwatchStatus$: Observable<StopwatchStatus>;
+  stopwatchDuration$: Observable<number>;
 
   private destroy$ = new Subject<boolean>();
 
@@ -38,6 +41,8 @@ export class AppComponent implements OnDestroy {
     this.groundsInOunces$ = store.select(fromCalc.getGroundsInOunces);
     this.groundsInML$ = store.select(fromCalc.getGroundsInML);
     this.groundsInCups$ = store.select(fromCalc.getGroundsInCups);
+    this.stopwatchStatus$ = store.select(fromCalc.getStopwatchStatus);
+    this.stopwatchDuration$ = store.select(fromCalc.getStopwatchDuration);
     store.select(fromCalc.getBrewBackgroundColor).pipe(
       tap(color => {
         document.getElementById('body')!.style.background = color;
@@ -59,5 +64,13 @@ export class AppComponent implements OnDestroy {
 
   updateTotalBrew(brew: number): void {
     this.store.dispatch(CalcActions.updateTotalBrew({ brew }));
+  }
+
+  toggleStopwatchRun(): void {
+    this.store.dispatch(CalcActions.toggleStopwatchRun());
+  }
+
+  resetStopwatch(): void {
+    this.store.dispatch(CalcActions.resetStopwatch());
   }
 }

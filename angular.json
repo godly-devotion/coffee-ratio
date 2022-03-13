@@ -60,6 +60,7 @@
             ],
             "styles": [
               "src/styles-material-theme.scss",
+              "src/styles-mat.scss",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -126,12 +127,14 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
               "src/assets",
+              "src/favicon.ico",
+              "src/browserconfig.xml",
               "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles-material-theme.scss",
+              "src/styles-mat.scss",
               "src/styles.scss"
             ],
             "scripts": []

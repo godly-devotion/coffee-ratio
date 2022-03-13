@@ -14,11 +14,13 @@ import { environment } from '../environments/environment';
 import { MaterialModule } from './app.module.material';
 import { CalcComponent } from './calc/calc.component';
 import { CalcEffects } from './states/calc/calc.effects';
+import { StopwatchDurationPipe } from './pipes/stopwatch-duration.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalcComponent
+    CalcComponent,
+    StopwatchDurationPipe
   ],
   imports: [
     BrowserModule,
