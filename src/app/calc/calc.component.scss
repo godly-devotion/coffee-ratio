@@ -11,11 +11,11 @@
   grid-template-rows: auto;
   grid-template-areas:
     "header"
+    "stopwatch"
     "ratio"
     "brew"
     "grounds"
-    "grounds-approx"
-    "stopwatch";
+    "grounds-approx";
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   padding: 1rem;
@@ -27,10 +27,10 @@
   .cr-form {
     grid-template-areas:
       "header          header"
+      "stopwatch       stopwatch"
       "ratio           brew"
       "grounds         grounds"
-      "grounds-approx  grounds-approx"
-      "stopwatch       stopwatch";
+      "grounds-approx  grounds-approx";
   }
 }
 
@@ -40,22 +40,6 @@
   align-items: center;
   align-content: center;
   justify-content: space-between;
-}
-
-.cr-ratio-card {
-  grid-area: ratio;
-}
-
-.cr-brew-card {
-  grid-area: brew;
-}
-
-.cr-grounds-card {
-  grid-area: grounds;
-}
-
-.cr-grounds-approx-card {
-  grid-area: grounds-approx;
 }
 
 .cr-stopwatch-card {
@@ -86,4 +70,20 @@
   .mat-icon {
     font-size: 1.5rem;
   }
+}
+
+.cr-ratio-card {
+  grid-area: ratio;
+}
+
+.cr-brew-card {
+  grid-area: brew;
+}
+
+.cr-grounds-card {
+  grid-area: grounds;
+}
+
+.cr-grounds-approx-card {
+  grid-area: grounds-approx;
 }
