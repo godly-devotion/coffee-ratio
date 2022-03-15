@@ -1,49 +1,36 @@
-<form [formGroup]="form"
-      class="cr-form">
-  <div class="cr-header">
-    <span class="mat-headline">Coffee Ratio</span>
-    <a mat-icon-button
-       target="_blank"
-       href="https://github.com/godly-devotion/coffee-ratio">
-      <mat-icon svgIcon="octocat"
-                matTooltip="View on GitHub"
-                matTooltipPosition="left">
-      </mat-icon>
-    </a>
-  </div>
-
-  <mat-card class="cr-stopwatch-card">
-    <mat-card-content>
-      <div class="cr-stopwatch-container">
-        <mat-form-field floatLabel="never"
-                        appearance="outline">
-          <input matInput
-                 readonly
-                 autocomplete="off"
-                 [value]="stopwatchDuration | stopwatchDuration">
-        </mat-form-field>
-
-        <button mat-stroked-button
-                class="cr-stopwatch-button"
-                (click)="resetStopwatch.emit()">
-          <mat-icon>refresh</mat-icon>
-        </button>
-
-        <button mat-stroked-button
-                class="cr-stopwatch-button"
-                [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
-                [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
-                (click)="toggleStopwatchRun.emit()">
-          <mat-icon *ngIf="stopwatchStatus === StopwatchStatus.Running">pause</mat-icon>
-          <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
-        </button>
+<mat-card class="cr-stopwatch-card">
+  <mat-card-content>
+    <div class="cr-stopwatch-container">
+      <div class="cr-stopwatch-duration">
+        {{stopwatchDuration | stopwatchDuration}}
       </div>
-    </mat-card-content>
-  </mat-card>
 
-  <mat-card class="cr-ratio-card">
-    <mat-card-subtitle>1. RATIO</mat-card-subtitle>
-    <mat-card-content>
+      <button mat-stroked-button
+              class="cr-stopwatch-run"
+              [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
+              [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
+              (click)="toggleStopwatchRun.emit()">
+        <mat-icon *ngIf="stopwatchStatus === StopwatchStatus.Running">pause</mat-icon>
+        <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
+      </button>
+
+      <button mat-stroked-button
+              class="cr-stopwatch-reset"
+              (click)="resetStopwatch.emit()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="cr-ratio-card">
+  <form [formGroup]="form"
+        class="cr-form">
+    <mat-card-subtitle class="cr-ratio-label">
+      1. RATIO
+    </mat-card-subtitle>
+
+    <mat-card-content class="cr-ratio-input">
       <mat-form-field floatLabel="never"
                       appearance="outline">
         <input matInput
@@ -56,11 +43,12 @@
                autocomplete="off">
       </mat-form-field>
     </mat-card-content>
-  </mat-card>
 
-  <mat-card class="cr-brew-card">
-    <mat-card-subtitle>2. TOTAL BREW (ML)</mat-card-subtitle>
-    <mat-card-content>
+    <mat-card-subtitle class="cr-brew-label">
+      2. TOTAL BREW (ML)
+    </mat-card-subtitle>
+
+    <div class="cr-brew-input">
       <mat-form-field floatLabel="never"
                       appearance="outline">
         <input matInput
@@ -72,55 +60,53 @@
                formControlName="brew"
                autocomplete="off">
       </mat-form-field>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </form>
+</mat-card>
 
-  <mat-card class="cr-grounds-card">
-    <mat-card-subtitle>GROUNDS (G)</mat-card-subtitle>
-    <mat-card-content>
-      <mat-form-field floatLabel="never"
-                      appearance="outline">
-        <input matInput
-               readonly
-               autocomplete="off"
-               [value]="grounds">
-      </mat-form-field>
-    </mat-card-content>
-  </mat-card>
+<mat-card class="cr-grounds-card">
+  <mat-card-subtitle>GROUNDS (G)</mat-card-subtitle>
+  <mat-card-content>
+    <mat-form-field floatLabel="never"
+                    appearance="outline">
+      <input matInput
+             readonly
+             autocomplete="off"
+             [value]="grounds">
+    </mat-form-field>
+  </mat-card-content>
 
-  <mat-card class="cr-grounds-approx-card">
-    <mat-card-subtitle>
-      <span>APPROX. GROUNDS</span>
-      <mat-icon matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
-                matTooltipShowDelay="0"
-                matTooltipPosition="above">
-        info
-      </mat-icon>
-    </mat-card-subtitle>
-    <mat-card-content>
-      <mat-form-field floatLabel="never"
-                      appearance="outline">
-        <input matInput
-               readonly
-               autocomplete="off"
-               [value]="'~' + groundsInOunces + ' oz'">
-      </mat-form-field>
+  <mat-card-subtitle>
+    <span>APPROX. GROUNDS</span>
+    <mat-icon matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
+              matTooltipShowDelay="0"
+              matTooltipPosition="above">
+      info
+    </mat-icon>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <mat-form-field floatLabel="never"
+                    appearance="outline">
+      <input matInput
+             readonly
+             autocomplete="off"
+             [value]="'~' + groundsInOunces + ' oz'">
+    </mat-form-field>
 
-      <mat-form-field floatLabel="never"
-                      appearance="outline">
-        <input matInput
-               readonly
-               autocomplete="off"
-               [value]="'~' + groundsInML + ' mL'">
-      </mat-form-field>
+    <mat-form-field floatLabel="never"
+                    appearance="outline">
+      <input matInput
+             readonly
+             autocomplete="off"
+             [value]="'~' + groundsInML + ' mL'">
+    </mat-form-field>
 
-      <mat-form-field floatLabel="never"
-                      appearance="outline">
-        <input matInput
-               readonly
-               autocomplete="off"
-               [value]="'~' + groundsInCups + ' cups'">
-      </mat-form-field>
-    </mat-card-content>
-  </mat-card>
-</form>
+    <mat-form-field floatLabel="never"
+                    appearance="outline">
+      <input matInput
+             readonly
+             autocomplete="off"
+             [value]="'~' + groundsInCups + ' cups'">
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

@@ -3,7 +3,6 @@ import { State } from 'src/app/states/index';
 import * as CalcActions from 'src/app/states/calc/calc.actions';
 import update from 'update-immutable';
 import { Utils } from 'src/app/helpers/utils';
-import { BrewStrengthColor } from 'src/app/helpers/brew-strength-color';
 import { StopwatchStatus } from 'src/app/data-models/enum';
 
 export const calcFeatureKey = 'calc';
@@ -168,9 +167,4 @@ export const getGroundsInCups = createSelector(
 export const getStopwatchDuration = createSelector(
   getStopwatchStartTime, getStopwatchLastTime,
   (startTime, lastTime) => (lastTime - startTime) / 1000
-);
-
-export const getBrewBackgroundColor = createSelector(
-  getRatio,
-  (ratio) => BrewStrengthColor.backgroundColor(ratio)
 );
