@@ -9,8 +9,6 @@ import * as CalcActions from './calc.actions';
 
 @Injectable()
 export class CalcEffects {
-  private intervalId = 0;
-
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ROOT_EFFECTS_INIT),
@@ -88,7 +86,7 @@ export class CalcEffects {
         }
       })
     ),
-    { dispatch: false }
+  { dispatch: false }
   );
 
   updateRatio$ = createEffect(() =>
@@ -97,7 +95,7 @@ export class CalcEffects {
       filter(({ ratio }) => ratio > 2),
       tap(({ ratio }) => localStorage.setItem('cr-ratio', ratio.toString()))
     ),
-    { dispatch: false }
+  { dispatch: false }
   );
 
   updateTotalBrew$ = createEffect(() =>
@@ -106,7 +104,7 @@ export class CalcEffects {
       filter(({ brew }) => brew > 0),
       tap(({ brew }) => localStorage.setItem('cr-total-brew', brew.toString()))
     ),
-    { dispatch: false }
+  { dispatch: false }
   );
 
   toggleStopwatchRun$ = createEffect(() =>
@@ -134,7 +132,7 @@ export class CalcEffects {
         }
       })
     ),
-    { dispatch: false }
+  { dispatch: false }
   );
 
   tickStopwatch$ = createEffect(() =>
@@ -144,6 +142,7 @@ export class CalcEffects {
       switchMap(([{ now }, duration]) => {
         localStorage.setItem('cr-stopwatch-lasttime', now.toString());
         const oneHourInSec = 3600;
+
         if (duration >= oneHourInSec) {
           return of(CalcActions.resetStopwatch());
         }
@@ -158,13 +157,16 @@ export class CalcEffects {
       tap(() => {
         clearInterval(this.intervalId);
         const now = Date.now().toString();
+
         localStorage.setItem('cr-stopwatch-status', StopwatchStatus.NotStarted.toString());
         localStorage.setItem('cr-stopwatch-starttime', now);
         localStorage.setItem('cr-stopwatch-lasttime', now);
       })
     ),
-    { dispatch: false }
+  { dispatch: false }
   );
+
+  private intervalId = 0;
 
   constructor(
     private actions$: Actions,

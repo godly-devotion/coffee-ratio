@@ -10,6 +10,8 @@ export class StopwatchDurationPipe implements PipeTransform {
     }
 
     // YYYY-MM-DDTHH:mm:ss.sssZ
-    return new Date(value * 1000).toISOString().slice(14, -3);
+    return new Date(value * 1000)
+      .toISOString()
+      .slice(14, -3);
   }
 }

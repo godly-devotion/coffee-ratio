@@ -10,11 +10,10 @@
 .cr-stopwatch-container {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
+  grid-template:
     "duration duration"
-    "run      reset";
+    "run      reset"
+    / 1fr 1fr;
   column-gap: 0.5rem;
   row-gap: 0.5rem;
 
@@ -45,32 +44,32 @@
 
 .cr-stopwatch-running {
   // mat red 600
-  color: rgb(229, 56, 53);
+  color: rgb(229 56 53);
 }
 
 .cr-stopwatch-paused {
   // mat green 600
-  color: rgb(67, 160, 71);
+  color: rgb(67 160 71);
 }
 
 .cr-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
+  grid-template:
     "ratio-label  ratio-label"
     "ratio-input  ratio-input"
     "brew-label   brew-label"
-    "brew-input   brew-input";
+    "brew-input   brew-input"
+    / 1fr 1fr;
   column-gap: 0.5rem;
   row-gap: 0.25rem;
 }
 
 @media (min-width: 375px) {
   .cr-form {
-    grid-template-areas:
+    grid-template:
       "ratio-label  ratio-input"
-      "brew-label   brew-input";
+      "brew-label   brew-input"
+      / 1fr 1fr;
 
     .mat-card-subtitle,
     .mat-card-content {

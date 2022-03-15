@@ -43,7 +43,7 @@ import { StopwatchDurationPipe } from './pipes/stopwatch-duration.pipe';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([CalcEffects,])
+    EffectsModule.forRoot([CalcEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

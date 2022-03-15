@@ -33,8 +33,8 @@ export class CalcComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      ratio: [this.ratio, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(3)]],
-      brew: [this.brew, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(0)]]
+      ratio: [this.ratio, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(3)]],
+      brew: [this.brew, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(0)]]
     }, {
       validators: [this.canCalc]
     });
@@ -80,5 +80,5 @@ export class CalcComponent implements OnInit, OnDestroy {
     }
 
     return null;
-  }
+  };
 }

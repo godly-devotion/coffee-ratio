@@ -50,12 +50,14 @@ export const reducer = createReducer(
   }),
   on(CalcActions.updateRatio, (state, { ratio }) => {
     const ratioVal = ratio > 0 ? ratio : 0;
+
     return update(state, {
       ratio: { $set: ratioVal }
     });
   }),
   on(CalcActions.updateTotalBrew, (state, { brew }) => {
     const brewVal = brew > 0 ? brew : 0;
+
     return update(state, {
       totalBrew: { $set: brewVal }
     });
