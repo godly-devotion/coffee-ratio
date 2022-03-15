@@ -24,4 +24,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
-        npm run ng -- deploy --base-href=/coffee-ratio/ --name="godly-devotion" --email="azian.riceball@gmail.com" --no-silent
+        npm run ng -- deploy --base-href=/coffee-ratio/ --name="godly-devotion" --email="jpark@duck.com" --no-silent
