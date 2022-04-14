@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1649899609943,
+  "timestamp": 1649900472447,
   "index": "/coffee-ratio/index.html",
   "assetGroups": [
     {
@@ -67,9 +67,9 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/coffee-ratio/assets/images/favicon/android-chrome-192x192.png": "3a04dd03b318e91bac4178b91e359584b00305c0",
-    "/coffee-ratio/assets/images/favicon/android-chrome-512x512.png": "79d55af35bf58a4632c4f1365e4fc067494f4a2b",
-    "/coffee-ratio/assets/images/favicon/apple-touch-icon.png": "690bd653ea9623441f022f6296fffa20287f2db7",
+    "/coffee-ratio/assets/images/favicon/android-chrome-192x192.png": "30fd4b0916ef039668c68db706777a0cf0a2c4c1",
+    "/coffee-ratio/assets/images/favicon/android-chrome-512x512.png": "62233c9ad4fea7e6eb11577bdf34abbb110b1c74",
+    "/coffee-ratio/assets/images/favicon/apple-touch-icon.png": "67339956210d254a8d786debe4704df41a34f867",
     "/coffee-ratio/assets/images/favicon/favicon-16x16.png": "e4f3d87bdbdc64b6f5ae27c631e88ba2e112bc09",
     "/coffee-ratio/assets/images/favicon/favicon-32x32.png": "380854ad464f85f3bbe2fcecad8f02d9d8b76339",
     "/coffee-ratio/assets/images/favicon/mstile-150x150.png": "874101a830f1a5faccb927078b5d1ca990f4630a",
