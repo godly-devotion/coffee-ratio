@@ -11,7 +11,7 @@
   .cr-brew-input {
     display: flex;
     align-items: baseline;
-    font-size: 2.5rem;
+    font-size: 2rem;
 
     .mat-form-field-outline-start {
       min-width: 0.8rem;
@@ -24,7 +24,7 @@
   }
 
   .cr-brew-input input {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -38,8 +38,8 @@
 }
 
 .cr-card-value {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 2rem;
   text-align: right;
 }
 
@@ -73,6 +73,7 @@
 
 .cr-stopwatch-duration {
   grid-area: duration;
+  font-weight: 500;
   font-size: 2.5rem;
   line-height: 2.5rem;
   text-align: center;
@@ -110,6 +111,6 @@
 
 .cr-ratio-toggle-group .mat-icon-button.cr-selected {
   color: rgb(214 144 96);
-  font-weight: 700;
+  font-weight: 600;
   background: rgb(243 220 205);
 }
