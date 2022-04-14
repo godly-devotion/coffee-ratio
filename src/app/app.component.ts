@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import * as fromRoot from 'src/app/states';
 import * as fromCalc from 'src/app/states/calc/calc.reducer';
 import * as CalcActions from 'src/app/states/calc/calc.actions';
-import { StopwatchStatus } from './data-models/enum';
+import { VolumeUnit, StopwatchStatus } from './data-models/enum';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,8 @@ import { StopwatchStatus } from './data-models/enum';
 })
 export class AppComponent {
   ratio$: Observable<number>;
-  totalBrew$: Observable<number>;
+  totalBrewDisplay$: Observable<number>;
+  totalBrewUnit$: Observable<VolumeUnit>;
   grounds$: Observable<number>;
   groundsInOunces$: Observable<number>;
   groundsInML$: Observable<number>;
@@ -26,7 +27,8 @@ export class AppComponent {
     private store: Store<fromRoot.State>
   ) {
     this.ratio$ = store.select(fromCalc.getRatio);
-    this.totalBrew$ = store.select(fromCalc.getTotalBrew);
+    this.totalBrewDisplay$ = store.select(fromCalc.getTotalBrewDisplay);
+    this.totalBrewUnit$ = store.select(fromCalc.getTotalBrewUnit);
     this.grounds$ = store.select(fromCalc.getGrounds);
     this.groundsInOunces$ = store.select(fromCalc.getGroundsInOunces);
     this.groundsInML$ = store.select(fromCalc.getGroundsInML);
@@ -41,6 +43,10 @@ export class AppComponent {
 
   updateTotalBrew(brew: number): void {
     this.store.dispatch(CalcActions.updateTotalBrew({ brew }));
+  }
+
+  updateTotalBrewUnit(unit: VolumeUnit): void {
+    this.store.dispatch(CalcActions.updateTotalBrewUnit({ unit }));
   }
 
   toggleStopwatchRun(): void {

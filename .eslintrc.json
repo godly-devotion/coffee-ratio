@@ -50,6 +50,14 @@
           }
         ],
         "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/indent": [
+          "error",
+          2,
+          {
+            "VariableDeclarator": "first",
+            "SwitchCase": 1
+          }
+        ],
         "@typescript-eslint/member-delimiter-style": "error",
         "@typescript-eslint/member-ordering": [
           "error",
@@ -163,14 +171,7 @@
         "func-call-spacing": "error",
         "grouped-accessor-pairs": "error",
         "guard-for-in": "error",
-        "indent": [
-          "error",
-          2,
-          {
-            "VariableDeclarator": "first",
-            "SwitchCase": 1
-          }
-        ],
+        "indent": "off",
         "key-spacing": "error",
         "keyword-spacing": "error",
         "lines-around-comment": "error",

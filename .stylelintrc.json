@@ -1,7 +1,8 @@
 {
   "extends": [
     "stylelint-config-standard-scss",
-    "stylelint-config-html/html"
+    "stylelint-config-html/html",
+    "stylelint-config-rational-order"
   ],
   "rules": {
     "at-rule-no-unknown": [

@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { distinctUntilChanged, filter, Subject, takeUntil, tap } from 'rxjs';
-import { StopwatchStatus } from 'src/app/data-models/enum';
+import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
 
 @Component({
   selector: 'app-calc',
@@ -9,9 +9,10 @@ import { StopwatchStatus } from 'src/app/data-models/enum';
   styleUrls: ['./calc.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalcComponent implements OnInit, OnDestroy {
+export class CalcComponent implements OnInit, OnChanges, OnDestroy {
   @Input() ratio = 0;
   @Input() brew = 0;
+  @Input() brewUnit = VolumeUnit.ML;
   @Input() grounds = 0;
   @Input() groundsInOunces = 0;
   @Input() groundsInML = 0;
@@ -20,10 +21,12 @@ export class CalcComponent implements OnInit, OnDestroy {
   @Input() stopwatchDuration = 0;
   @Output() updateRatio = new EventEmitter<number>();
   @Output() updateTotalBrew = new EventEmitter<number>();
+  @Output() updateTotalBrewUnit = new EventEmitter<VolumeUnit>();
   @Output() toggleStopwatchRun = new EventEmitter();
   @Output() resetStopwatch = new EventEmitter();
   form!: FormGroup;
   StopwatchStatus = StopwatchStatus;
+  VolumeUnit = VolumeUnit;
 
   private destroy$ = new Subject<boolean>();
 
@@ -34,7 +37,7 @@ export class CalcComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.form = this.fb.group({
       ratio: [this.ratio, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(3)]],
-      brew: [this.brew, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(0)]]
+      brew: [this.brew, [Validators.required, Validators.pattern('^([0-9]+\.?[0-9]*|\.[0-9]+)$'), Validators.min(0)]]
     }, {
       validators: [this.canCalc]
     });
@@ -52,6 +55,14 @@ export class CalcComponent implements OnInit, OnDestroy {
       tap(brew => this.updateTotalBrew.emit(brew)),
       takeUntil(this.destroy$)
     ).subscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['brew']?.currentValue) {
+      const brew = changes['brew']?.currentValue;
+
+      this.form?.patchValue({ brew }, { emitEvent: false });
+    }
   }
 
   ngOnDestroy(): void {

@@ -3,3 +3,8 @@ export enum StopwatchStatus {
   Running,
   Paused
 }
+
+export enum VolumeUnit {
+  ML = 'ml',
+  OZ = 'oz'
+}

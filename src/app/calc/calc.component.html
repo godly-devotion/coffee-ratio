@@ -1,112 +1,140 @@
-<mat-card class="cr-stopwatch-card">
-  <mat-card-content>
-    <div class="cr-stopwatch-container">
-      <div class="cr-stopwatch-duration">
-        {{stopwatchDuration | stopwatchDuration}}
-      </div>
-
-      <button mat-stroked-button
-              class="cr-stopwatch-run"
-              [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
-              [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
-              (click)="toggleStopwatchRun.emit()">
-        <mat-icon *ngIf="stopwatchStatus === StopwatchStatus.Running">pause</mat-icon>
-        <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
-      </button>
-
-      <button mat-stroked-button
-              class="cr-stopwatch-reset"
-              (click)="resetStopwatch.emit()">
-        <mat-icon>refresh</mat-icon>
-      </button>
+<mat-card>
+  <div class="cr-stopwatch-container">
+    <div class="cr-stopwatch-duration">
+      {{stopwatchDuration | stopwatchDuration}}
     </div>
-  </mat-card-content>
+
+    <button mat-stroked-button
+            class="cr-stopwatch-run"
+            [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
+            [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
+            (click)="toggleStopwatchRun.emit()">
+      <mat-icon *ngIf="stopwatchStatus === StopwatchStatus.Running">pause</mat-icon>
+      <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
+    </button>
+
+    <button mat-stroked-button
+            class="cr-stopwatch-reset"
+            (click)="resetStopwatch.emit()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
 </mat-card>
 
-<mat-card class="cr-ratio-card">
-  <form [formGroup]="form"
-        class="cr-form">
-    <mat-card-subtitle class="cr-ratio-label">
-      1. RATIO
-    </mat-card-subtitle>
+<form [formGroup]="form"
+      class="cr-form">
+  <mat-card>
+    <div class="cr-card-title">
+      1. Ratio
+    </div>
 
-    <mat-card-content class="cr-ratio-input">
-      <mat-form-field floatLabel="never"
-                      appearance="outline">
-        <input matInput
-               inputmode="numeric"
-               pattern="[0-9]*"
-               type="number"
-               min="0"
-               step="1"
-               formControlName="ratio"
-               autocomplete="off">
-      </mat-form-field>
-    </mat-card-content>
+    <div class="cr-ratio-toggle-group">
+      <button mat-icon-button
+              [class.cr-selected]="ratio === 15"
+              (click)="updateRatio.emit(15)">
+        1:15
+      </button>
 
-    <mat-card-subtitle class="cr-brew-label">
-      2. TOTAL BREW (ML)
-    </mat-card-subtitle>
+      <button mat-icon-button
+              [class.cr-selected]="ratio === 16"
+              (click)="updateRatio.emit(16)">
+        1:16
+      </button>
+
+      <button mat-icon-button
+              [class.cr-selected]="ratio === 17"
+              (click)="updateRatio.emit(17)">
+        1:17
+      </button>
+
+      <button mat-icon-button
+              [class.cr-selected]="ratio === 18"
+              (click)="updateRatio.emit(18)">
+        1:18
+      </button>
+
+      <button mat-icon-button
+              [class.cr-selected]="ratio === 19"
+              (click)="updateRatio.emit(19)">
+        1:19
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="cr-card-title">
+      2. Total Brew
+    </div>
 
     <div class="cr-brew-input">
       <mat-form-field floatLabel="never"
                       appearance="outline">
         <input matInput
                inputmode="numeric"
-               pattern="[0-9]*"
+               pattern="[0-9]+\.?[0-9]*|\.[0-9]+"
                type="number"
                min="0"
                step="10"
+               placeholder="0"
                formControlName="brew"
                autocomplete="off">
+        <span matSuffix
+              class="cr-card-unit">
+          {{brewUnit}}
+        </span>
       </mat-form-field>
     </div>
-  </form>
-</mat-card>
 
-<mat-card class="cr-grounds-card">
-  <mat-card-subtitle>GROUNDS (G)</mat-card-subtitle>
-  <mat-card-content>
-    <mat-form-field floatLabel="never"
-                    appearance="outline">
-      <input matInput
-             readonly
-             autocomplete="off"
-             [value]="grounds">
-    </mat-form-field>
-  </mat-card-content>
+    <div class="cr-ratio-toggle-group"
+         style="justify-content: flex-end;">
+      <button mat-icon-button
+              [class.cr-selected]="brewUnit === VolumeUnit.ML"
+              (click)="updateTotalBrewUnit.emit(VolumeUnit.ML)">
+        ml
+      </button>
 
-  <mat-card-subtitle>
-    <span>APPROX. GROUNDS</span>
-    <mat-icon matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
-              matTooltipShowDelay="0"
-              matTooltipPosition="above">
-      info
-    </mat-icon>
-  </mat-card-subtitle>
-  <mat-card-content>
-    <mat-form-field floatLabel="never"
-                    appearance="outline">
-      <input matInput
-             readonly
-             autocomplete="off"
-             [value]="'~' + groundsInOunces + ' oz'">
-    </mat-form-field>
+      <button mat-icon-button
+              [class.cr-selected]="brewUnit === VolumeUnit.OZ"
+              (click)="updateTotalBrewUnit.emit(VolumeUnit.OZ)">
+        oz
+      </button>
+    </div>
 
-    <mat-form-field floatLabel="never"
-                    appearance="outline">
-      <input matInput
-             readonly
-             autocomplete="off"
-             [value]="'~' + groundsInML + ' mL'">
-    </mat-form-field>
+    <mat-divider></mat-divider>
 
-    <mat-form-field floatLabel="never"
-                    appearance="outline">
-      <input matInput
-             readonly
-             autocomplete="off"
-             [value]="'~' + groundsInCups + ' cups'">
-    </mat-form-field>
-  </mat-card-content>
-</mat-card>
+    <div class="cr-card-title">
+      Grounds
+    </div>
+
+    <div class="cr-card-value">
+      <span>{{grounds}}</span>
+      <span class="cr-card-unit">g</span>
+    </div>
+
+    <div class="cr-card-title">
+      <span>Approx. Grounds in Volume</span>
+      <mat-icon matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
+                matTooltipShowDelay="0"
+                matTooltipPosition="above">
+        info
+      </mat-icon>
+    </div>
+
+    <div class="cr-card-value"
+         style="margin-bottom: 0.5rem;">
+      <span>{{groundsInOunces}}</span>
+      <span class="cr-card-unit">oz</span>
+    </div>
+
+    <div class="cr-card-value"
+         style="margin-bottom: 0.5rem;">
+      <span>{{groundsInML}}</span>
+      <span class="cr-card-unit">ml</span>
+    </div>
+
+    <div class="cr-card-value">
+      <span>{{groundsInCups}}</span>
+      <span class="cr-card-unit">cups</span>
+    </div>
+  </mat-card>
+</form>

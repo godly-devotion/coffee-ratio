@@ -1,5 +1,6 @@
 <app-calc [ratio]="(ratio$|async)!"
-          [brew]="(totalBrew$|async)!"
+          [brew]="(totalBrewDisplay$|async)!"
+          [brewUnit]="(totalBrewUnit$|async)!"
           [grounds]="(grounds$|async)!"
           [groundsInOunces]="(groundsInOunces$|async)!"
           [groundsInML]="(groundsInML$|async)!"
@@ -8,6 +9,7 @@
           [stopwatchDuration]="(stopwatchDuration$|async)!"
           (updateRatio)="updateRatio($event)"
           (updateTotalBrew)="updateTotalBrew($event)"
+          (updateTotalBrewUnit)="updateTotalBrewUnit($event)"
           (toggleStopwatchRun)="toggleStopwatchRun()"
           (resetStopwatch)="resetStopwatch()">
 </app-calc>

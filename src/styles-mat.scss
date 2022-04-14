@@ -1,7 +1,5 @@
-.mat-headline {
-  display: flex;
-  align-items: center;
-  margin: 0;
+mat-card.mat-card {
+  border-radius: 0.8rem;
 }
 
 .mat-button,
@@ -13,16 +11,16 @@
 
   .mat-button-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 }
 
 button.mat-icon-button,
 a.mat-icon-button {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 mat-icon.mat-icon {
@@ -32,23 +30,38 @@ mat-icon.mat-icon {
   font-size: 1.1rem;
 }
 
-mat-card-subtitle.mat-card-subtitle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.7rem;
-}
-
 .mat-form-field {
-  font-size: 1rem;
   width: 100%;
 }
 
-.mat-form-field-appearance-outline .mat-form-field-wrapper {
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+  margin-bottom: 0.8rem;
   padding: 0;
 }
 
-.mat-form-field-infix {
-  border-top: 0.3rem solid transparent;
+mat-form-field .mat-form-field-infix {
   width: 100% !important;
+  border-top: 0.3rem solid transparent;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.8rem 0 0.4rem;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0 0.8rem;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0;
+}
+
+input.mat-input-element {
+  text-align: right;
+}
+
+input.mat-input-element::-webkit-outer-spin-button,
+input.mat-input-element::-webkit-inner-spin-button {
+  display: none;
 }

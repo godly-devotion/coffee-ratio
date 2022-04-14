@@ -1,25 +1,69 @@
 :host {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   justify-content: center;
-  gap: 0.25rem;
-  padding: 1rem;
   max-width: 22rem;
+  padding: 1rem;
+}
+
+:host ::ng-deep {
+  .cr-brew-input {
+    display: flex;
+    align-items: baseline;
+    font-size: 2.5rem;
+
+    .mat-form-field-outline-start {
+      min-width: 0.8rem;
+      border-radius: 0.8rem 0 0 0.8rem;
+    }
+
+    .mat-form-field-outline-end {
+      border-radius: 0 0.8rem 0.8rem 0;
+    }
+  }
+
+  .cr-brew-input input {
+    font-size: 2.5rem;
+  }
+}
+
+.cr-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+  color: rgba(0 0 0 / 0.54);
+  font-size: 0.875rem;
+}
+
+.cr-card-value {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-align: right;
+}
+
+.cr-card-unit {
+  margin-left: 0.4rem;
+  color: rgb(214 144 96);
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 
 .cr-stopwatch-container {
   display: grid;
-  align-items: center;
   grid-template:
     "duration duration"
     "run      reset"
     / 1fr 1fr;
+  align-items: center;
   column-gap: 0.5rem;
   row-gap: 0.5rem;
 
   .mat-stroked-button {
     height: 3.2rem;
     padding: 0;
+    border-radius: 0.8rem;
 
     .mat-icon {
       font-size: 1.5rem;
@@ -52,44 +96,20 @@
   color: rgb(67 160 71);
 }
 
-.cr-form {
-  display: grid;
-  grid-template:
-    "ratio-label  ratio-label"
-    "ratio-input  ratio-input"
-    "brew-label   brew-label"
-    "brew-input   brew-input"
-    / 1fr 1fr;
-  column-gap: 0.5rem;
-  row-gap: 0.25rem;
+.cr-ratio-toggle-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
 }
 
-@media (min-width: 375px) {
-  .cr-form {
-    grid-template:
-      "ratio-label  ratio-input"
-      "brew-label   brew-input"
-      / 1fr 1fr;
-
-    .mat-card-subtitle,
-    .mat-card-content {
-      margin-bottom: 0;
-    }
-  }
+.cr-ratio-toggle-group .mat-icon-button {
+  width: 3rem;
+  height: 3rem;
 }
 
-.cr-ratio-label {
-  grid-area: ratio-label;
-}
-
-.cr-ratio-input {
-  grid-area: ratio-input;
-}
-
-.cr-brew-label {
-  grid-area: brew-label;
-}
-
-.cr-brew-input {
-  grid-area: brew-input;
+.cr-ratio-toggle-group .mat-icon-button.cr-selected {
+  color: rgb(214 144 96);
+  font-weight: 700;
+  background: rgb(243 220 205);
 }

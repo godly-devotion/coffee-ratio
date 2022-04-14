@@ -3,13 +3,14 @@ import { State } from 'src/app/states/index';
 import * as CalcActions from 'src/app/states/calc/calc.actions';
 import update from 'update-immutable';
 import { Utils } from 'src/app/helpers/utils';
-import { StopwatchStatus } from 'src/app/data-models/enum';
+import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
 
 export const calcFeatureKey = 'calc';
 
 export interface CalcState {
   ratio: number;
   totalBrew: number;
+  totalBrewUnit: VolumeUnit;
   stopwatch: {
     status: StopwatchStatus;
     startTime: number;
@@ -20,6 +21,7 @@ export interface CalcState {
 export const initialState: CalcState = {
   ratio: 16,
   totalBrew: 500,
+  totalBrewUnit: VolumeUnit.ML,
   stopwatch: {
     status: StopwatchStatus.NotStarted,
     startTime: Date.now(),
@@ -34,9 +36,10 @@ export const reducer = createReducer(
       ratio: { $set: ratio }
     });
   }),
-  on(CalcActions.restoreTotalBrewSuccess, (state, { brew }) => {
+  on(CalcActions.restoreTotalBrewSuccess, (state, { brew, unit }) => {
     return update(state, {
-      totalBrew: { $set: brew }
+      totalBrew: { $set: brew },
+      totalBrewUnit: { $set: unit }
     });
   }),
   on(CalcActions.restoreStopwatchSuccess, (state, { status, startTime, lastTime }) => {
@@ -60,6 +63,12 @@ export const reducer = createReducer(
 
     return update(state, {
       totalBrew: { $set: brewVal }
+    });
+  }),
+  on(CalcActions.updateTotalBrewUnit, (state, { unit }) => {
+    return update(state, {
+      totalBrew: { $set: Utils.convertVolumeUnits(state.totalBrew, state.totalBrewUnit, unit) },
+      totalBrewUnit: { $set: unit }
     });
   }),
   on(CalcActions.toggleStopwatchRun, (state) => {
@@ -108,11 +117,12 @@ export const reducer = createReducer(
   })
 );
 
-function calculateGrounds(totalBrew: number, ratio: number): number {
+function calculateGrounds(brewML: number, ratio: number): number {
   if (ratio <= 2) {
     return 0;
   }
-  return Utils.roundDecimal(totalBrew / (ratio - 2));
+
+  return brewML / (ratio - 2);
 }
 
 // State Selectors
@@ -129,9 +139,9 @@ export const getTotalBrew = createSelector(
   (state) => state.totalBrew
 );
 
-export const getGrounds = createSelector(
+export const getTotalBrewUnit = createSelector(
   getCalcState,
-  (state) => calculateGrounds(state.totalBrew, state.ratio)
+  (state) => state.totalBrewUnit
 );
 
 export const getStopwatchStatus = createSelector(
@@ -150,6 +160,21 @@ export const getStopwatchLastTime = createSelector(
 );
 
 // Custom Selectors
+
+export const getTotalBrewDisplay = createSelector(
+  getTotalBrew,
+  (brew) => Utils.roundDecimal(brew)
+);
+
+export const getGrounds = createSelector(
+  getTotalBrew, getTotalBrewUnit, getRatio,
+  (brew, brewUnit, ratio) => {
+    const brewML = Utils.convertVolumeUnits(brew, brewUnit, VolumeUnit.ML);
+    const grounds = calculateGrounds(brewML, ratio);
+
+    return Utils.roundDecimal(grounds);
+  }
+);
 
 export const getGroundsInOunces = createSelector(
   getGrounds,
