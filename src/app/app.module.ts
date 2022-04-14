@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { MaterialModule } from './app.module.material';
 import { CalcComponent } from './calc/calc.component';
 import { CalcEffects } from './states/calc/calc.effects';
+import { StopwatchEffects } from './states/stopwatch/stopwatch.effects';
 import { StopwatchDurationPipe } from './pipes/stopwatch-duration.pipe';
 
 @NgModule({
@@ -43,7 +44,10 @@ import { StopwatchDurationPipe } from './pipes/stopwatch-duration.pipe';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([CalcEffects])
+    EffectsModule.forRoot([
+      CalcEffects,
+      StopwatchEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

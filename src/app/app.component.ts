@@ -3,7 +3,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromRoot from 'src/app/states';
 import * as fromCalc from 'src/app/states/calc/calc.reducer';
+import * as fromStopwatch from 'src/app/states/stopwatch/stopwatch.reducer';
 import * as CalcActions from 'src/app/states/calc/calc.actions';
+import * as StopwatchActions from 'src/app/states/stopwatch/stopwatch.actions';
 import { VolumeUnit, StopwatchStatus } from './data-models/enum';
 
 @Component({
@@ -33,8 +35,8 @@ export class AppComponent {
     this.groundsInOunces$ = store.select(fromCalc.getGroundsInOunces);
     this.groundsInML$ = store.select(fromCalc.getGroundsInML);
     this.groundsInCups$ = store.select(fromCalc.getGroundsInCups);
-    this.stopwatchStatus$ = store.select(fromCalc.getStopwatchStatus);
-    this.stopwatchDuration$ = store.select(fromCalc.getStopwatchDuration);
+    this.stopwatchStatus$ = store.select(fromStopwatch.getStopwatchStatus);
+    this.stopwatchDuration$ = store.select(fromStopwatch.getStopwatchDuration);
   }
 
   updateRatio(ratio: number): void {
@@ -50,10 +52,10 @@ export class AppComponent {
   }
 
   toggleStopwatchRun(): void {
-    this.store.dispatch(CalcActions.toggleStopwatchRun());
+    this.store.dispatch(StopwatchActions.toggleRun());
   }
 
   resetStopwatch(): void {
-    this.store.dispatch(CalcActions.resetStopwatch());
+    this.store.dispatch(StopwatchActions.reset());
   }
 }

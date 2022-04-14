@@ -3,7 +3,7 @@ import { State } from 'src/app/states/index';
 import * as CalcActions from 'src/app/states/calc/calc.actions';
 import update from 'update-immutable';
 import { Utils } from 'src/app/helpers/utils';
-import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
+import { VolumeUnit } from 'src/app/data-models/enum';
 
 export const calcFeatureKey = 'calc';
 
@@ -11,22 +11,12 @@ export interface CalcState {
   ratio: number;
   totalBrew: number;
   totalBrewUnit: VolumeUnit;
-  stopwatch: {
-    status: StopwatchStatus;
-    startTime: number;
-    lastTime: number;
-  };
 }
 
 export const initialState: CalcState = {
   ratio: 16,
   totalBrew: 500,
-  totalBrewUnit: VolumeUnit.ML,
-  stopwatch: {
-    status: StopwatchStatus.NotStarted,
-    startTime: Date.now(),
-    lastTime: Date.now()
-  }
+  totalBrewUnit: VolumeUnit.ML
 };
 
 export const reducer = createReducer(
@@ -42,15 +32,7 @@ export const reducer = createReducer(
       totalBrewUnit: { $set: unit }
     });
   }),
-  on(CalcActions.restoreStopwatchSuccess, (state, { status, startTime, lastTime }) => {
-    return update(state, {
-      stopwatch: {
-        status: { $set: status },
-        startTime: { $set: startTime },
-        lastTime: { $set: lastTime }
-      }
-    });
-  }),
+
   on(CalcActions.updateRatio, (state, { ratio }) => {
     const ratioVal = ratio > 0 ? ratio : 0;
 
@@ -69,50 +51,6 @@ export const reducer = createReducer(
     return update(state, {
       totalBrew: { $set: Utils.convertVolumeUnits(state.totalBrew, state.totalBrewUnit, unit) },
       totalBrewUnit: { $set: unit }
-    });
-  }),
-  on(CalcActions.toggleStopwatchRun, (state) => {
-    if (state.stopwatch.status === StopwatchStatus.Running) {
-      return update(state, {
-        stopwatch: {
-          status: { $set: StopwatchStatus.Paused }
-        }
-      });
-    }
-    if (state.stopwatch.status === StopwatchStatus.Paused) {
-      const duration = state.stopwatch.lastTime - state.stopwatch.startTime;
-
-      return update(state, {
-        stopwatch: {
-          status: { $set: StopwatchStatus.Running },
-          startTime: { $set: Date.now() - duration },
-          lastTime: { $set: Date.now() }
-        }
-      });
-    }
-
-    return update(state, {
-      stopwatch: {
-        status: { $set: StopwatchStatus.Running },
-        startTime: { $set: Date.now() },
-        lastTime: { $set: Date.now() }
-      }
-    });
-  }),
-  on(CalcActions.tickStopwatch, (state, { now }) => {
-    return update(state, {
-      stopwatch: {
-        lastTime: { $set: now }
-      }
-    });
-  }),
-  on(CalcActions.resetStopwatch, (state) => {
-    return update(state, {
-      stopwatch: {
-        status: { $set: StopwatchStatus.NotStarted },
-        startTime: { $set: Date.now() },
-        lastTime: { $set: Date.now() }
-      }
     });
   })
 );
@@ -142,21 +80,6 @@ export const getTotalBrew = createSelector(
 export const getTotalBrewUnit = createSelector(
   getCalcState,
   (state) => state.totalBrewUnit
-);
-
-export const getStopwatchStatus = createSelector(
-  getCalcState,
-  (state) => state.stopwatch.status
-);
-
-export const getStopwatchStartTime = createSelector(
-  getCalcState,
-  (state) => state.stopwatch.startTime
-);
-
-export const getStopwatchLastTime = createSelector(
-  getCalcState,
-  (state) => state.stopwatch.lastTime
 );
 
 // Custom Selectors
@@ -189,9 +112,4 @@ export const getGroundsInML = createSelector(
 export const getGroundsInCups = createSelector(
   getGroundsInOunces,
   (grounds) => Utils.roundDecimal(grounds / 8)
-);
-
-export const getStopwatchDuration = createSelector(
-  getStopwatchStartTime, getStopwatchLastTime,
-  (startTime, lastTime) => (lastTime - startTime) / 1000
 );
