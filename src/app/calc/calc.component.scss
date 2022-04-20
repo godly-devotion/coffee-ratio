@@ -13,13 +13,8 @@
     align-items: baseline;
     font-size: 2rem;
 
-    .mat-form-field-outline-start {
-      min-width: 0.8rem;
-      border-radius: 0.8rem 0 0 0.8rem;
-    }
-
-    .mat-form-field-outline-end {
-      border-radius: 0 0.8rem 0.8rem 0;
+    .mat-form-field-wrapper {
+      margin-bottom: -1.7rem;
     }
   }
 
@@ -33,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 1rem 0;
-  color: rgba(0 0 0 / 54%);
+  color: rgba(255 255 255 / 54%);
   font-size: 0.875rem;
 }
 
@@ -60,7 +55,7 @@
   column-gap: 0.5rem;
   row-gap: 0.5rem;
 
-  .mat-stroked-button {
+  .mat-flat-button {
     height: 3.2rem;
     padding: 0;
     border-radius: 0.8rem;
@@ -112,5 +107,5 @@
 .cr-ratio-toggle-group .mat-icon-button.cr-selected {
   color: rgb(214 144 96);
   font-weight: 600;
-  background: rgb(243 220 205);
+  background: rgba(214 144 96 / 17%);
 }

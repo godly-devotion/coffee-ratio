@@ -4,7 +4,7 @@
       {{stopwatchDuration | stopwatchDuration}}
     </div>
 
-    <button mat-stroked-button
+    <button mat-flat-button
             class="cr-stopwatch-run"
             [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
             [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
@@ -13,7 +13,7 @@
       <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
     </button>
 
-    <button mat-stroked-button
+    <button mat-flat-button
             class="cr-stopwatch-reset"
             (click)="resetStopwatch.emit()">
       <mat-icon>refresh</mat-icon>
@@ -66,7 +66,7 @@
 
     <div class="cr-brew-input">
       <mat-form-field floatLabel="never"
-                      appearance="outline">
+                      appearance="fill">
         <input matInput
                inputmode="numeric"
                pattern="[0-9]+\.?[0-9]*|\.[0-9]+"

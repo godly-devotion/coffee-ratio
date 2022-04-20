@@ -1,4 +1,5 @@
 mat-card.mat-card {
+  background: rgb(30 30 30);
   border-radius: 0.8rem;
 }
 
@@ -34,27 +35,17 @@ mat-icon.mat-icon {
   width: 100%;
 }
 
-mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
-  margin: 0;
-  margin-bottom: 0.8rem;
-  padding: 0;
-}
-
 mat-form-field .mat-form-field-infix {
   width: 100% !important;
   border-top: 0.3rem solid transparent;
 }
 
-mat-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
-  padding: 0.8rem 0 0.4rem;
+mat-form-field.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0.25rem 0 0.45rem;
 }
 
-mat-form-field.mat-form-field-appearance-outline .mat-form-field-flex {
-  padding: 0 0.8rem;
-}
-
-mat-form-field.mat-form-field-appearance-outline .mat-form-field-suffix {
-  top: 0;
+mat-form-field.mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0 0.55rem;
 }
 
 input.mat-input-element {
