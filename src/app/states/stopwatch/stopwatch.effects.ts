@@ -12,9 +12,7 @@ export class StopwatchEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ROOT_EFFECTS_INIT),
-      switchMap(() => of(
-        StopwatchActions.restore()
-      ))
+      switchMap(() => of(StopwatchActions.restore()))
     )
   );
 

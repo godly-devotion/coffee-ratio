@@ -25,37 +25,37 @@
       class="cr-form">
   <mat-card>
     <div class="cr-card-title">
-      Ratio
+      Water Ratio
     </div>
 
     <div class="cr-ratio-toggle-group">
       <button mat-icon-button
-              [class.cr-selected]="ratio === 15"
-              (click)="updateRatio.emit(15)">
+              [class.cr-selected]="waterRatio === 15"
+              (click)="updateWaterRatio.emit(15)">
         1:15
       </button>
 
       <button mat-icon-button
-              [class.cr-selected]="ratio === 16"
-              (click)="updateRatio.emit(16)">
+              [class.cr-selected]="waterRatio === 16"
+              (click)="updateWaterRatio.emit(16)">
         1:16
       </button>
 
       <button mat-icon-button
-              [class.cr-selected]="ratio === 17"
-              (click)="updateRatio.emit(17)">
+              [class.cr-selected]="waterRatio === 17"
+              (click)="updateWaterRatio.emit(17)">
         1:17
       </button>
 
       <button mat-icon-button
-              [class.cr-selected]="ratio === 18"
-              (click)="updateRatio.emit(18)">
+              [class.cr-selected]="waterRatio === 18"
+              (click)="updateWaterRatio.emit(18)">
         1:18
       </button>
 
       <button mat-icon-button
-              [class.cr-selected]="ratio === 19"
-              (click)="updateRatio.emit(19)">
+              [class.cr-selected]="waterRatio === 19"
+              (click)="updateWaterRatio.emit(19)">
         1:19
       </button>
     </div>
@@ -76,6 +76,7 @@
                placeholder="0"
                formControlName="brew"
                autocomplete="off">
+
         <span matSuffix
               class="cr-card-unit">
           {{brewUnit}}
@@ -98,13 +99,76 @@
       </button>
     </div>
 
+    <div class="cr-card-title">
+      <span>Blend Ratio</span>
+      <mat-slide-toggle [checked]="useBlendRatio"
+                        (change)="toggleUseBlendRatio.emit()">
+      </mat-slide-toggle>
+    </div>
+
+    <div class="cr-ratio-toggle-group"
+         *ngIf="useBlendRatio">
+      <button mat-icon-button
+              [disabled]="!useBlendRatio"
+              [class.cr-selected]="blendRatio === 2"
+              (click)="updateBlendRatio.emit(2)">
+        1:1
+      </button>
+
+      <button mat-icon-button
+              [disabled]="!useBlendRatio"
+              [class.cr-selected]="blendRatio === 3"
+              (click)="updateBlendRatio.emit(3)">
+        1:2
+      </button>
+
+      <button mat-icon-button
+              [disabled]="!useBlendRatio"
+              [class.cr-selected]="blendRatio === 4"
+              (click)="updateBlendRatio.emit(4)">
+        1:3
+      </button>
+
+      <button mat-icon-button
+              [disabled]="!useBlendRatio"
+              [class.cr-selected]="blendRatio === 5"
+              (click)="updateBlendRatio.emit(5)">
+        1:4
+      </button>
+
+      <button mat-icon-button
+              [disabled]="!useBlendRatio"
+              [class.cr-selected]="blendRatio === 6"
+              (click)="updateBlendRatio.emit(6)">
+        1:5
+      </button>
+    </div>
+
     <mat-divider></mat-divider>
 
-    <div class="cr-card-title">
+    <div class="cr-card-title"
+         style="padding-top: 1rem;">
       Grounds
     </div>
 
-    <div class="cr-card-value">
+    <div class="cr-card-value"
+         *ngIf="useBlendRatio">
+      <span>{{Utils.roundDecimal(grounds / blendRatio)}}</span>
+      <span class="cr-card-unit">g</span>
+    </div>
+
+    <div class="cr-card-value"
+         *ngIf="useBlendRatio">
+      <span class="cr-card-math">﹢</span>
+      <span>{{Utils.roundDecimal((grounds * (blendRatio - 1)) / blendRatio)}}</span>
+      <span class="cr-card-unit">g</span>
+    </div>
+
+
+    <div class="cr-card-value"
+         style="margin-bottom: 1rem;">
+      <span class="cr-card-math"
+            *ngIf="useBlendRatio">﹦</span>
       <span>{{grounds}}</span>
       <span class="cr-card-unit">g</span>
     </div>
@@ -118,14 +182,12 @@
       </mat-icon>
     </div>
 
-    <div class="cr-card-value"
-         style="margin-bottom: 0.5rem;">
+    <div class="cr-card-value">
       <span>{{groundsInML}}</span>
       <span class="cr-card-unit">ml</span>
     </div>
 
-    <div class="cr-card-value"
-         style="margin-bottom: 0.5rem;">
+    <div class="cr-card-value">
       <span>{{groundsInOunces}}</span>
       <span class="cr-card-unit">oz</span>
     </div>

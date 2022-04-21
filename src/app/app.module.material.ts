@@ -4,6 +4,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 export const MaterialModule = [
@@ -13,5 +14,6 @@ export const MaterialModule = [
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatSlideToggleModule,
   MatTooltipModule
 ];

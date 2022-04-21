@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   color: rgba(255 255 255 / 54%);
   font-size: 0.875rem;
 }
@@ -36,6 +36,14 @@
   font-size: 2rem;
   line-height: 2rem;
   text-align: right;
+}
+
+.mat-card .cr-card-value:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.cr-card-math {
+  color: rgba(255 255 255 / 54%);
 }
 
 .cr-card-unit {
@@ -96,7 +104,7 @@
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .cr-ratio-toggle-group .mat-icon-button {
@@ -104,8 +112,8 @@
   height: 3rem;
 }
 
-.cr-ratio-toggle-group .mat-icon-button.cr-selected {
+.cr-ratio-toggle-group .mat-icon-button.cr-selected:not(.mat-button-disabled) {
   color: rgb(214 144 96);
   font-weight: 600;
-  background: rgba(214 144 96 / 17%);
+  background: rgba(255 255 255 / 10%);
 }

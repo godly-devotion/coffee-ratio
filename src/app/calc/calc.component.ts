@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { distinctUntilChanged, filter, Subject, takeUntil, tap } from 'rxjs';
 import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
+import { Utils } from 'src/app/helpers/utils';
+import { CalcDefaults } from '../data-models/calc-defaults';
 
 @Component({
   selector: 'app-calc',
@@ -10,16 +12,20 @@ import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalcComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() ratio = 0;
-  @Input() brew = 0;
-  @Input() brewUnit = VolumeUnit.ML;
+  @Input() waterRatio = CalcDefaults.waterRatio;
+  @Input() useBlendRatio = CalcDefaults.useBlendRatio;
+  @Input() blendRatio = CalcDefaults.blendRatio;
+  @Input() brew = CalcDefaults.totalBrew;
+  @Input() brewUnit = CalcDefaults.totalBrewUnit;
   @Input() grounds = 0;
   @Input() groundsInOunces = 0;
   @Input() groundsInML = 0;
   @Input() groundsInCups = 0;
   @Input() stopwatchStatus = StopwatchStatus.NotStarted;
   @Input() stopwatchDuration = 0;
-  @Output() updateRatio = new EventEmitter<number>();
+  @Output() updateWaterRatio = new EventEmitter<number>();
+  @Output() toggleUseBlendRatio = new EventEmitter();
+  @Output() updateBlendRatio = new EventEmitter<number>();
   @Output() updateTotalBrew = new EventEmitter<number>();
   @Output() updateTotalBrewUnit = new EventEmitter<VolumeUnit>();
   @Output() toggleStopwatchRun = new EventEmitter();
@@ -27,6 +33,7 @@ export class CalcComponent implements OnInit, OnChanges, OnDestroy {
   form!: FormGroup;
   StopwatchStatus = StopwatchStatus;
   VolumeUnit = VolumeUnit;
+  Utils = Utils;
 
   private destroy$ = new Subject<boolean>();
 
@@ -36,16 +43,16 @@ export class CalcComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      ratio: [this.ratio, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(3)]],
+      waterRatio: [this.waterRatio, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(3)]],
       brew: [this.brew, [Validators.required, Validators.pattern('^([0-9]+\.?[0-9]*|\.[0-9]+)$'), Validators.min(0)]]
     }, {
       validators: [this.canCalc]
     });
 
-    this.form.controls['ratio'].valueChanges.pipe(
+    this.form.controls['waterRatio'].valueChanges.pipe(
       distinctUntilChanged(),
-      filter(ratio => !Number.isNaN(ratio)),
-      tap(ratio => this.updateRatio.emit(ratio)),
+      filter(waterRatio => !Number.isNaN(waterRatio)),
+      tap(waterRatio => this.updateWaterRatio.emit(waterRatio)),
       takeUntil(this.destroy$)
     ).subscribe();
 
@@ -75,15 +82,15 @@ export class CalcComponent implements OnInit, OnChanges, OnDestroy {
       return null;
     }
 
-    const ratioControl = form.get('ratio');
+    const waterRatioControl = form.get('waterRatio');
     const brewControl = form.get('brew');
 
-    if (!ratioControl || !brewControl) {
+    if (!waterRatioControl || !brewControl) {
       return null;
     }
 
-    if (!ratioControl.value) {
-      return { ratioEmtpy: 'Ratio is required' };
+    if (!waterRatioControl.value) {
+      return { waterRatioEmtpy: 'Water ratio is required' };
     }
 
     if (!brewControl.value) {

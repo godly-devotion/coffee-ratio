@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { switchMap, of, tap, EMPTY, filter, withLatestFrom } from 'rxjs';
+import { switchMap, of, tap, filter, withLatestFrom } from 'rxjs';
+import { CalcDefaults } from 'src/app/data-models/calc-defaults';
 import { VolumeUnit } from 'src/app/data-models/enum';
 import * as fromRoot from 'src/app/states';
 import * as fromCalc from 'src/app/states/calc/calc.reducer';
@@ -12,51 +13,54 @@ export class CalcEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ROOT_EFFECTS_INIT),
-      switchMap(() => of(
-        CalcActions.restoreRatio(),
-        CalcActions.restoreTotalBrew()
-      ))
+      switchMap(() => of(CalcActions.restorePreferences()))
     )
   );
 
-  restoreRatio$ = createEffect(() =>
+  restorePreferences$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CalcActions.restoreRatio),
+      ofType(CalcActions.restorePreferences),
       switchMap(() => {
-        const ratio = Number(localStorage.getItem('cr-ratio'));
+        const waterRatio = Number(localStorage.getItem('cr-water-ratio') ?? CalcDefaults.waterRatio);
+        const useBlendRatio = localStorage.getItem('cr-use-blend-ratio') === 'true';
+        const blendRatio = Number(localStorage.getItem('cr-blend-ratio') ?? CalcDefaults.blendRatio);
+        const brew = Number(localStorage.getItem('cr-brew') ?? CalcDefaults.totalBrew);
+        const unit = (localStorage.getItem('cr-brew-unit') as VolumeUnit) ?? CalcDefaults.totalBrewUnit;
 
-        if (!ratio || Number.isNaN(ratio)) {
-          return EMPTY;
-        }
-        return of(CalcActions.restoreRatioSuccess({ ratio }));
+        return of(CalcActions.restorePreferencesSuccess({
+          waterRatio,
+          useBlendRatio,
+          blendRatio,
+          brew,
+          unit
+        }));
       })
     )
   );
 
-  restoreTotalBrew$ = createEffect(() =>
+  updateWaterRatio$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CalcActions.restoreTotalBrew),
-      switchMap(() => {
-        const brew = Number(localStorage.getItem('cr-brew'));
-        const unit = localStorage.getItem('cr-brew-unit') as VolumeUnit;
-
-        if (
-          !brew ||
-          Number.isNaN(brew) ||
-          !unit
-        ) {
-          return EMPTY;
-        }
-        return of(CalcActions.restoreTotalBrewSuccess({ brew, unit }));
-      })
-    )
+      ofType(CalcActions.updateWaterRatio),
+      filter(({ waterRatio }) => waterRatio > 2),
+      tap(({ waterRatio }) => localStorage.setItem('cr-water-ratio', waterRatio.toString()))
+    ),
+  { dispatch: false }
   );
 
-  updateRatio$ = createEffect(() =>
+  toggleBlendRatioUse$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CalcActions.updateRatio),
-      filter(({ ratio }) => ratio > 2),
-      tap(({ ratio }) => localStorage.setItem('cr-ratio', ratio.toString()))
+      ofType(CalcActions.toggleBlendRatioUse),
+      withLatestFrom(this.store$.select(fromCalc.getUseBlendRatio)),
+      tap(([, useBlendRatio]) => localStorage.setItem('cr-use-blend-ratio', useBlendRatio.toString()))
+    ),
+  { dispatch: false }
+  );
+
+  updateBlendRatio$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CalcActions.updateBlendRatio),
+      filter(({ blendRatio }) => blendRatio > 0),
+      tap(({ blendRatio }) => localStorage.setItem('cr-blend-ratio', blendRatio.toString()))
     ),
   { dispatch: false }
   );

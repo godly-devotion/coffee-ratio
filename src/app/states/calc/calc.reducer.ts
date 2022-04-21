@@ -4,40 +4,55 @@ import * as CalcActions from 'src/app/states/calc/calc.actions';
 import update from 'update-immutable';
 import { Utils } from 'src/app/helpers/utils';
 import { VolumeUnit } from 'src/app/data-models/enum';
+import { CalcDefaults } from 'src/app/data-models/calc-defaults';
 
 export const calcFeatureKey = 'calc';
 
 export interface CalcState {
-  ratio: number;
+  waterRatio: number;
+  useBlendRatio: boolean;
+  blendRatio: number;
   totalBrew: number;
   totalBrewUnit: VolumeUnit;
 }
 
 export const initialState: CalcState = {
-  ratio: 16,
-  totalBrew: 500,
-  totalBrewUnit: VolumeUnit.ML
+  waterRatio: CalcDefaults.waterRatio,
+  useBlendRatio: CalcDefaults.useBlendRatio,
+  blendRatio: CalcDefaults.blendRatio,
+  totalBrew: CalcDefaults.totalBrew,
+  totalBrewUnit: CalcDefaults.totalBrewUnit
 };
 
 export const reducer = createReducer(
   initialState,
-  on(CalcActions.restoreRatioSuccess, (state, { ratio }) => {
+  on(CalcActions.restorePreferencesSuccess, (state, { waterRatio, useBlendRatio, blendRatio, brew, unit }) => {
     return update(state, {
-      ratio: { $set: ratio }
-    });
-  }),
-  on(CalcActions.restoreTotalBrewSuccess, (state, { brew, unit }) => {
-    return update(state, {
+      waterRatio: { $set: waterRatio },
+      useBlendRatio: { $set: useBlendRatio },
+      blendRatio: { $set: blendRatio },
       totalBrew: { $set: brew },
       totalBrewUnit: { $set: unit }
     });
   }),
 
-  on(CalcActions.updateRatio, (state, { ratio }) => {
-    const ratioVal = ratio > 0 ? ratio : 0;
+  on(CalcActions.updateWaterRatio, (state, { waterRatio }) => {
+    const ratioVal = waterRatio > 0 ? waterRatio : 0;
 
     return update(state, {
-      ratio: { $set: ratioVal }
+      waterRatio: { $set: ratioVal }
+    });
+  }),
+  on(CalcActions.toggleBlendRatioUse, (state) => {
+    return update(state, {
+      useBlendRatio: { $set: !state.useBlendRatio }
+    });
+  }),
+  on(CalcActions.updateBlendRatio, (state, { blendRatio }) => {
+    const ratioVal = blendRatio > 1 ? blendRatio : 2;
+
+    return update(state, {
+      blendRatio: { $set: ratioVal }
     });
   }),
   on(CalcActions.updateTotalBrew, (state, { brew }) => {
@@ -67,9 +82,19 @@ function calculateGrounds(brewML: number, ratio: number): number {
 
 export const getCalcState = (state: State): CalcState => state.calc;
 
-export const getRatio = createSelector(
+export const getWaterRatio = createSelector(
   getCalcState,
-  (state) => state.ratio
+  (state) => state.waterRatio
+);
+
+export const getUseBlendRatio = createSelector(
+  getCalcState,
+  (state) => state.useBlendRatio
+);
+
+export const getBlendRatio = createSelector(
+  getCalcState,
+  (state) => state.blendRatio
 );
 
 export const getTotalBrew = createSelector(
@@ -90,10 +115,10 @@ export const getTotalBrewDisplay = createSelector(
 );
 
 export const getGrounds = createSelector(
-  getTotalBrew, getTotalBrewUnit, getRatio,
-  (brew, brewUnit, ratio) => {
+  getTotalBrew, getTotalBrewUnit, getWaterRatio,
+  (brew, brewUnit, waterRatio) => {
     const brewML = Utils.convertVolumeUnits(brew, brewUnit, VolumeUnit.ML);
-    const grounds = calculateGrounds(brewML, ratio);
+    const grounds = calculateGrounds(brewML, waterRatio);
 
     return Utils.roundDecimal(grounds);
   }

@@ -15,7 +15,9 @@ import { VolumeUnit, StopwatchStatus } from './data-models/enum';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  ratio$: Observable<number>;
+  waterRatio$: Observable<number>;
+  useBlendRatio$: Observable<boolean>;
+  blendRatio$: Observable<number>;
   totalBrewDisplay$: Observable<number>;
   totalBrewUnit$: Observable<VolumeUnit>;
   grounds$: Observable<number>;
@@ -28,7 +30,9 @@ export class AppComponent {
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.ratio$ = store.select(fromCalc.getRatio);
+    this.waterRatio$ = store.select(fromCalc.getWaterRatio);
+    this.useBlendRatio$ = store.select(fromCalc.getUseBlendRatio);
+    this.blendRatio$ = store.select(fromCalc.getBlendRatio);
     this.totalBrewDisplay$ = store.select(fromCalc.getTotalBrewDisplay);
     this.totalBrewUnit$ = store.select(fromCalc.getTotalBrewUnit);
     this.grounds$ = store.select(fromCalc.getGrounds);
@@ -39,8 +43,16 @@ export class AppComponent {
     this.stopwatchDuration$ = store.select(fromStopwatch.getStopwatchDuration);
   }
 
-  updateRatio(ratio: number): void {
-    this.store.dispatch(CalcActions.updateRatio({ ratio }));
+  updateWaterRatio(waterRatio: number): void {
+    this.store.dispatch(CalcActions.updateWaterRatio({ waterRatio }));
+  }
+
+  toggleUseBlendRatio(): void {
+    this.store.dispatch(CalcActions.toggleBlendRatioUse());
+  }
+
+  updateBlendRatio(blendRatio: number): void {
+    this.store.dispatch(CalcActions.updateBlendRatio({ blendRatio }));
   }
 
   updateTotalBrew(brew: number): void {
