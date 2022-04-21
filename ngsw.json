@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1650423304385,
+  "timestamp": 1650505705278,
   "index": "/coffee-ratio/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/coffee-ratio/favicon.ico",
         "/coffee-ratio/index.html",
-        "/coffee-ratio/main.22de0a1c7655dbd8.js",
+        "/coffee-ratio/main.b9712d62853b1928.js",
         "/coffee-ratio/manifest.webmanifest",
         "/coffee-ratio/polyfills.e4ce7231598ae42b.js",
         "/coffee-ratio/runtime.e63b97180409cc32.js",
-        "/coffee-ratio/styles.971bd7caf859cf63.css"
+        "/coffee-ratio/styles.ad16e4da5630fee1.css"
       ],
       "patterns": []
     },
@@ -100,12 +100,12 @@
     "/coffee-ratio/assets/images/splash/apple-splash-750-1334.jpg": "af0708b518eb2f4e1dc614748c2c008429370746",
     "/coffee-ratio/assets/images/splash/apple-splash-828-1792.jpg": "7cb97556297e4a853bc5764f0c91bb96e9f30b1e",
     "/coffee-ratio/favicon.ico": "4ac7d826fbece35296f9cb73c56f76f7818373bc",
-    "/coffee-ratio/index.html": "7289a1208734506443d46331d1c7a8c87422d38e",
-    "/coffee-ratio/main.22de0a1c7655dbd8.js": "135faba8fc75e50240054b7e8d996d031db97b4d",
+    "/coffee-ratio/index.html": "dcbfc42c7e26b43915ada579693ea370d0e2a201",
+    "/coffee-ratio/main.b9712d62853b1928.js": "48d2236ccf7d3bb60568e9d8dab33d1d5d083272",
     "/coffee-ratio/manifest.webmanifest": "1e06d70000edd2c6ce1709c5fdc1ffaaae780b98",
     "/coffee-ratio/polyfills.e4ce7231598ae42b.js": "3a9f454f985da510169e70c042622bbb62526eb5",
     "/coffee-ratio/runtime.e63b97180409cc32.js": "0e18796e87b11b14024b1bc6cdfeafc95d30fdd3",
-    "/coffee-ratio/styles.971bd7caf859cf63.css": "8cd7b5a8d58bd10e29389b1deefcb93d8e6eee79"
+    "/coffee-ratio/styles.ad16e4da5630fee1.css": "afa2a65decd9db91689da80b5b6c43b14c001e5e"
   },
   "navigationUrls": [
     {
