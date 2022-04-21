@@ -25,7 +25,7 @@
     "@angular-devkit/core" "13.3.3"
     rxjs "6.6.7"
 
-"@angular-devkit/build-angular@~13.3.3":
+"@angular-devkit/build-angular@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-13.3.3.tgz#1c5334de17d55315d3a0762d16f0e7f9d15954ad"
   integrity sha512-iEpNF3tF+9Gw+qQKL63fPFHIvWokJdrgVU4GzENQ5QeL8zk8iYTEbH3jWogq5tWy5+VmNP/mKkasq9i78lRiYw==
@@ -185,23 +185,23 @@
     "@angular-eslint/bundled-angular-compiler" "13.2.1"
     "@typescript-eslint/experimental-utils" "5.17.0"
 
-"@angular/animations@~13.3.3":
+"@angular/animations@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-13.3.3.tgz#53b153451b03a367489d80cbf98a46b2a9b3ee6e"
   integrity sha512-rP1e0XYjHxPCnvSN3k0ZCBTfIvpKbFI8fxlZMD85PI9HAko5Dc1Y5XCWrcMzdCF4C5nfqbzfzuZke5H3Y46AVQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@^13.3.3":
-  version "13.3.3"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.3.3.tgz#f98d9d67744bf7fa7ee5a8aeb756c6546b88793e"
-  integrity sha512-dzd31mta2VwffxbeO4CelMqb7WswLnkC/r2QZXySnc0CTmj44HqXkqdZuEvVgxaKRVpxsYeuBuhhhy8U00YMOw==
+"@angular/cdk@^13.3.4":
+  version "13.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.3.4.tgz#047d3474e1938aa11b4665286bcd09aa4c45424c"
+  integrity sha512-im4LKxJaIuqFVzmtf650PoiYsn/SZlvBV2zEgzusK8HwQ24C1Lya7NQSApwl8k43h4eKO1OvUKBjqL5uDgEQag==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
     parse5 "^5.0.0"
 
-"@angular/cli@~13.3.3":
+"@angular/cli@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-13.3.3.tgz#dd789bfbb92dd713301f064dfcaf6353623d1a84"
   integrity sha512-a+nnzFP1FfnypXpAhrHbIBaJcxzegWLZUvVzJQwt6P2z60IoHdvTVmyNbY89qI0LE1SrAokEUO1zW3Yjmu7fUw==
@@ -226,14 +226,14 @@
     symbol-observable "4.0.0"
     uuid "8.3.2"
 
-"@angular/common@~13.3.3":
+"@angular/common@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-13.3.3.tgz#29ee3d09ef9529486da3b524a43324ae333729a9"
   integrity sha512-W5rZyuilGAA+tHoTbvHHu11efUBssiiX9BKg2rQAwbdnG+hZfNs0ze28Y+2bwjTDkbLsXsQwm30gs2uie7aMyA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/compiler-cli@~13.3.3":
+"@angular/compiler-cli@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-13.3.3.tgz#51f3bed26fc17385ff86479965f49296db88af92"
   integrity sha512-mX2fusiRMUWvXEtfFz/G/tnWiM9a+QpLVSPITpobnKUXMD6pgSh4PGsfHplx4Qbmxz6AqwPZ0wUMSDTopcbW+w==
@@ -249,56 +249,56 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@~13.3.3":
+"@angular/compiler@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-13.3.3.tgz#e8f2fe184945b7b57f5104e245bd785e97ee5096"
   integrity sha512-Ynv6md2acZSztl1SZ/mZkIgSxGLruAw8OvSb619FsVINUWHTfLraIAY618oO9K2iPuLY4ixL7BR9ymeW4p8kTw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@~13.3.3":
+"@angular/core@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-13.3.3.tgz#870b989e4f8354a290298a83a4bec37d474e8af6"
   integrity sha512-zVsAuR1qT2QEUXDk8ANs+pCnxH7ckKAD+rJXoxI1Br94Ey1o7lNXu/GPJtTqxDbsRd7sGqMMQRti36t2CA5QhA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@~13.3.3":
+"@angular/forms@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-13.3.3.tgz#3b39e7b87e4930a28c399a9853dc395c52f95ab3"
   integrity sha512-C89b7Uu7Acpm+0/JDczIqhNJTEJPdskmnx7AybAoSfBPs9QUSP8irRFKY7UtmE8E/Q2m03xqWRDa8CpP9Rt6Hw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/material@^13.3.3":
-  version "13.3.3"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-13.3.3.tgz#efeb63f01529ecbee7dd41f4eb34aaf28b778588"
-  integrity sha512-PkZ7VW3/7tqdBHSOOmq7com7Ir147OEe1+kfgF/G3y8WUutI9jY2cHKARXGWB+5WgcqKr7ol43u239UGkPfFHg==
+"@angular/material@^13.3.4":
+  version "13.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-13.3.4.tgz#202a5abf4771db56c9b434885262499261de4baf"
+  integrity sha512-jK9rWmBaPrE+3re6uIdyvG5DCzc47VUvnP1DqblNnpaa8GCKllb1cFRGqa5GPYB1/96d3wO+RPwzhC06qqV+yw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser-dynamic@~13.3.3":
+"@angular/platform-browser-dynamic@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-13.3.3.tgz#4e2d60798cb1288211edb9d70fdbe8d0d3198375"
   integrity sha512-3sidxYGCRj/OdtYvCNipbNRsXbXgiIZW20exxKG6H2MG4uxfBJ3yh7gFs25rdYJezdxL4/vesHQhKFguBVIgbw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@~13.3.3":
+"@angular/platform-browser@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-13.3.3.tgz#0466e483f838f6b6c8ed24bc05caba6e8fa409e4"
   integrity sha512-feVOGwjAZOR4aObjcEaXsj1NH6021sv0bWKSGBVNrR0RuHBXVfF0vRPAhdq3IAL1OcutriHGR52KS7t5x+nChw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@~13.3.3":
+"@angular/router@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-13.3.3.tgz#97258e71606585c3f5b6fa97beffd226307bdffc"
   integrity sha512-8RMUPT5eLKgs+I72MD7vBXvdGwhxPzCAmICH6aUkq8qZKnbLh0Qeh4ZLM7xLH+b3HRrrT64fSrKP4CCGwAmA9Q==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/service-worker@~13.3.3":
+"@angular/service-worker@13.3.3":
   version "13.3.3"
   resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-13.3.3.tgz#8f8f4261bf49e5c8e8801c8595d69ae6c135f23b"
   integrity sha512-f0O2HzYwGU5WRjc3AjlaGqL5glHDfi3G7zzBy8HFGjP33UsuvqkLTkKv34Nh16gckcfpfasd2H6z/edSsP0G8Q==
@@ -4744,10 +4744,10 @@ html-tags@^2.0.0:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
   integrity sha1-ELMKOGCF9Dzt41PMj6fLDe7qZos=
 
-html-tags@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
-  integrity sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
+html-tags@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.2.0.tgz#dbb3518d20b726524e4dd43de397eb0a95726961"
+  integrity sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==
 
 htmlparser2@^3.10.0:
   version "3.10.1"
@@ -5564,10 +5564,10 @@ karma-source-map-support@1.4.0:
   dependencies:
     source-map-support "^0.5.5"
 
-karma@~6.3.18:
-  version "6.3.18"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-6.3.18.tgz#85402f7cf5937eeb20eb21944c1d30055570033e"
-  integrity sha512-YEwXVHRILKWKN7uEW9IkgTPjnYGb3YA3MDvlp04xpSRAyrNPoRmsBayLDgHykKAwBm6/mAOckj4xi/1JdQfhzQ==
+karma@~6.3.19:
+  version "6.3.19"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-6.3.19.tgz#e50759667b0b9c6ad758655db0547d3ab4d2abf5"
+  integrity sha512-NDhWckzES/Y9xMiddyU1RzaKL76/scCsu8Mp0vR0Z3lQRvC3p72+Ab4ppoxs36S9tyPNX5V48yvaV++RNEBPZw==
   dependencies:
     "@colors/colors" "1.5.0"
     body-parser "^1.19.0"
@@ -6019,6 +6019,14 @@ micromatch@^4.0.2, micromatch@^4.0.4:
   dependencies:
     braces "^3.0.1"
     picomatch "^2.2.3"
+
+micromatch@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.5.tgz#bc8999a7cbbf77cdc89f132f6e467051b49090c6"
+  integrity sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==
+  dependencies:
+    braces "^3.0.2"
+    picomatch "^2.3.1"
 
 mime-db@1.51.0:
   version "1.51.0"
@@ -6825,7 +6833,7 @@ picocolors@^1.0.0:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
+picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
@@ -7238,6 +7246,14 @@ postcss-selector-parser@^3.1.0:
     dot-prop "^5.2.0"
     indexes-of "^1.0.1"
     uniq "^1.0.1"
+
+postcss-selector-parser@^6.0.10:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
+  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
+  dependencies:
+    cssesc "^3.0.0"
+    util-deprecate "^1.0.2"
 
 postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.6, postcss-selector-parser@^6.0.9:
   version "6.0.9"
@@ -8461,10 +8477,10 @@ stylelint-scss@^4.0.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint@^14.6.1:
-  version "14.6.1"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.6.1.tgz#aff137b0254515fc36b91921d88a3eb2edc194bf"
-  integrity sha512-FfNdvZUZdzh9KDQxDnO7Opp+prKh8OQVuSW8S13cBtxrooCbm6J6royhUeb++53WPMt04VB+ZbOz/QmzAijs6Q==
+stylelint@^14.7.1:
+  version "14.7.1"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.7.1.tgz#f1b3236cbf9e1b25a04d03f76250943a58d3f37f"
+  integrity sha512-rUOWm67hrzGXXyO/cInENEejF4urh1dLgOb9cr/3XLDb/t/A+rXQp3p6+no8o8QCKTgBUdhVUq/bXMgE988PJw==
   dependencies:
     balanced-match "^2.0.0"
     colord "^2.9.2"
@@ -8479,7 +8495,7 @@ stylelint@^14.6.1:
     global-modules "^2.0.0"
     globby "^11.1.0"
     globjoin "^0.1.4"
-    html-tags "^3.1.0"
+    html-tags "^3.2.0"
     ignore "^5.2.0"
     import-lazy "^4.0.0"
     imurmurhash "^0.1.4"
@@ -8487,7 +8503,7 @@ stylelint@^14.6.1:
     known-css-properties "^0.24.0"
     mathml-tag-names "^2.1.3"
     meow "^9.0.0"
-    micromatch "^4.0.4"
+    micromatch "^4.0.5"
     normalize-path "^3.0.0"
     normalize-selector "^0.2.0"
     picocolors "^1.0.0"
@@ -8495,7 +8511,7 @@ stylelint@^14.6.1:
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-safe-parser "^6.0.0"
-    postcss-selector-parser "^6.0.9"
+    postcss-selector-parser "^6.0.10"
     postcss-value-parser "^4.2.0"
     resolve-from "^5.0.0"
     specificity "^0.4.1"
