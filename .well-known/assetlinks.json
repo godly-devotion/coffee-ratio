@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "com.godly_devotion.coffee_ratio",
+                     "sha256_cert_fingerprints": ["0D:CB:6B:5C:2F:80:1C:94:14:BB:7A:9F:8B:93:C5:BB:D4:CD:85:B2:36:AF:A6:EA:3B:4E:04:DA:0F:AF:FB:E0"] }
+      }
+]
