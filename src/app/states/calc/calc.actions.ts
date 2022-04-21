@@ -14,6 +14,9 @@ export const restorePreferencesSuccess = createAction(
     unit: VolumeUnit;
   }>()
 );
+export const restorePreferencesFailure = createAction(
+  '[Calc] Restore Preferences Failure'
+);
 
 export const updateWaterRatio = createAction(
   '[Calc] Update Water Ratio',

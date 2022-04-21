@@ -27,6 +27,15 @@ export class CalcEffects {
         const brew = Number(localStorage.getItem('cr-brew') ?? CalcDefaults.totalBrew);
         const unit = (localStorage.getItem('cr-brew-unit') as VolumeUnit) ?? CalcDefaults.totalBrewUnit;
 
+        if (
+          Number.isNaN(waterRatio) ||
+          Number.isNaN(blendRatio) ||
+          Number.isNaN(brew) ||
+          Number.isNaN(unit)
+        ) {
+          return of(CalcActions.restorePreferencesFailure());
+        }
+
         return of(CalcActions.restorePreferencesSuccess({
           waterRatio,
           useBlendRatio,
