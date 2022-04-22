@@ -4,7 +4,8 @@
       {{stopwatchDuration | stopwatchDuration}}
     </div>
 
-    <button mat-flat-button
+    <button aria-label="Toggle stopwatch run"
+            mat-flat-button
             class="cr-stopwatch-run"
             [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
             [class.cr-stopwatch-paused]="stopwatchStatus === StopwatchStatus.Paused"
@@ -13,7 +14,8 @@
       <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
     </button>
 
-    <button mat-flat-button
+    <button aria-label="Reset stopwatch"
+            mat-flat-button
             class="cr-stopwatch-reset"
             (click)="resetStopwatch.emit()">
       <mat-icon>refresh</mat-icon>
@@ -60,14 +62,16 @@
       </button>
     </div>
 
-    <div class="cr-card-title">
+    <div class="cr-card-title"
+         for="totalBrew">
       Total Brew
     </div>
 
     <div class="cr-brew-input">
       <mat-form-field floatLabel="never"
                       appearance="fill">
-        <input matInput
+        <input id="totalBrew"
+               matInput
                inputmode="numeric"
                pattern="[0-9]+\.?[0-9]*|\.[0-9]+"
                type="number"
@@ -86,13 +90,15 @@
 
     <div class="cr-ratio-toggle-group"
          style="justify-content: flex-end;">
-      <button mat-icon-button
+      <button aria-label="Total brew in milliliters"
+              mat-icon-button
               [class.cr-selected]="brewUnit === VolumeUnit.ML"
               (click)="updateTotalBrewUnit.emit(VolumeUnit.ML)">
         ml
       </button>
 
-      <button mat-icon-button
+      <button aria-label="Total brew in ounces"
+              mat-icon-button
               [class.cr-selected]="brewUnit === VolumeUnit.OZ"
               (click)="updateTotalBrewUnit.emit(VolumeUnit.OZ)">
         oz
@@ -101,7 +107,8 @@
 
     <div class="cr-card-title">
       <span>Blend Ratio</span>
-      <mat-slide-toggle [checked]="useBlendRatio"
+      <mat-slide-toggle aria-label="Toggle blend ratio use"
+                        [checked]="useBlendRatio"
                         (change)="toggleUseBlendRatio.emit()">
       </mat-slide-toggle>
     </div>
@@ -163,7 +170,6 @@
       <span>{{Utils.roundDecimal((grounds * (blendRatio - 1)) / blendRatio)}}</span>
       <span class="cr-card-unit">g</span>
     </div>
-
 
     <div class="cr-card-value"
          style="margin-bottom: 1rem;">
