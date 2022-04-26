@@ -2,19 +2,21 @@
 
 ![GitHub Actions](https://github.com/godly-devotion/coffee-ratio/actions/workflows/main.yml/badge.svg)
 
-https://godly-devotion.github.io/coffee-ratio/
+Web App: https://godly-devotion.github.io/coffee-ratio/
 
-Calculate amount of beans needed for home brewed coffee, even without a scale! Built with PWA support, it works even without an internet connection.
+Calculate amount of beans needed for home brewed coffee, even without a scale! Built with full PWA (Progressive Web App) support, it works even without an internet connection.
 
-## Add to Home Screen
+
+## How To Install
+
+### Android
+
+Find the Coffee Ratio app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio). If you'd like to test out the app before you buy, navigate to the web app version which is free to use.
 
 ### iOS
 
 Open Safari app and navigate to Coffee Ratio. From the website, tap the Share button, then tap "Add to Home Screen".
 
-### Android
-
-Open Chrome app and navigate to Coffee Ratio. From the website, tap the Chrome’s Settings menu found in the top-right corner (three vertical dots), then tap "Add to Home screen".
 
 ## For Developers
 
@@ -35,3 +37,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Support My Work
+
+If you like the apps I've made and would like to support me, please consider purchasing the app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio) or by sponsoring me through [GitHub Sponsors](https://github.com/sponsors/godly-devotion).
