@@ -30,35 +30,13 @@
       Water Ratio
     </div>
 
-    <div class="cr-ratio-toggle-group">
-      <button mat-icon-button
-              [class.cr-selected]="waterRatio === 15"
-              (click)="updateWaterRatio.emit(15)">
-        1:15
-      </button>
-
-      <button mat-icon-button
-              [class.cr-selected]="waterRatio === 16"
-              (click)="updateWaterRatio.emit(16)">
-        1:16
-      </button>
-
-      <button mat-icon-button
-              [class.cr-selected]="waterRatio === 17"
-              (click)="updateWaterRatio.emit(17)">
-        1:17
-      </button>
-
-      <button mat-icon-button
-              [class.cr-selected]="waterRatio === 18"
-              (click)="updateWaterRatio.emit(18)">
-        1:18
-      </button>
-
-      <button mat-icon-button
-              [class.cr-selected]="waterRatio === 19"
-              (click)="updateWaterRatio.emit(19)">
-        1:19
+    <div class="cr-ratio-toggle-group cr-scroll-shadows">
+      <button *ngFor="let ratio of waterRatioOptions"
+              mat-icon-button
+              [attr.id]="'waterRatio' + ratio"
+              [class.cr-selected]="waterRatio === ratio"
+              (click)="updateWaterRatio.emit(ratio)">
+        1:{{ratio}}
       </button>
     </div>
 

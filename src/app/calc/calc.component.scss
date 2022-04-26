@@ -105,6 +105,7 @@
   gap: 1rem;
   justify-content: space-between;
   margin-bottom: 1rem;
+  border-radius: 1.5rem;
 }
 
 .cr-ratio-toggle-group .mat-icon-button {
@@ -116,4 +117,20 @@
   color: rgb(214 144 96);
   font-weight: 600;
   background: rgba(255 255 255 / 10%);
+}
+
+.cr-scroll-shadows {
+  overflow-y: auto;
+  background:
+    // shadow covers
+    linear-gradient(90deg, rgb(53 53 53), rgba(53 53 53 / 0%)),
+    linear-gradient(270deg, rgb(53 53 53), rgba(53 53 53 / 0%) 70%),
+    // shadow
+    linear-gradient(90deg, rgba(30 30 30), rgb(53 53 53)),
+    linear-gradient(270deg, rgba(30 30 30), rgb(53 53 53));
+  background-color: rgba(255 255 255 / 10%);
+  background-repeat: no-repeat;
+  background-position: top left, top right, top left, top right;
+  background-size: 40px 100%, 40px 100%, 20px 100%, 20px 100%;
+  background-attachment: local, local, scroll, scroll;
 }

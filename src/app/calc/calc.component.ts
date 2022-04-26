@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnDestroy, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { distinctUntilChanged, filter, Subject, takeUntil, tap } from 'rxjs';
 import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
@@ -11,7 +11,7 @@ import { CalcDefaults } from '../data-models/calc-defaults';
   styleUrls: ['./calc.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalcComponent implements OnInit, OnChanges, OnDestroy {
+export class CalcComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() waterRatio = CalcDefaults.waterRatio;
   @Input() useBlendRatio = CalcDefaults.useBlendRatio;
   @Input() blendRatio = CalcDefaults.blendRatio;
@@ -34,6 +34,8 @@ export class CalcComponent implements OnInit, OnChanges, OnDestroy {
   StopwatchStatus = StopwatchStatus;
   VolumeUnit = VolumeUnit;
   Utils = Utils;
+
+  waterRatioOptions = [...Array(18).keys()].map(startIndex => startIndex + 3);
 
   private destroy$ = new Subject<boolean>();
 
@@ -62,6 +64,12 @@ export class CalcComponent implements OnInit, OnChanges, OnDestroy {
       tap(brew => this.updateTotalBrew.emit(brew)),
       takeUntil(this.destroy$)
     ).subscribe();
+  }
+
+  ngAfterViewInit(): void {
+    const element = document.getElementById(`waterRatio${this.waterRatio}`);
+
+    element?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'center' });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
