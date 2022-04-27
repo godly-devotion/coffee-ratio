@@ -13,11 +13,11 @@ Calculate amount of beans needed for home brewed coffee, even without a scale! B
 
 ### Android
 
-Find the Coffee Ratio app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio). If you'd like to test out the app before you buy, navigate to the web app version which is free to use.
+Install the Coffee Ratio app from the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio). If you'd like to test out the app before you buy, navigate to the web app version which is free to use.
 
 ### iOS
 
-Open Safari app and navigate to Coffee Ratio. From the website, tap the Share button, then tap "Add to Home Screen".
+Open Safari app and navigate to the web app. From the website, tap the Share button, then tap "Add to Home Screen".
 
 
 ## For Developers
