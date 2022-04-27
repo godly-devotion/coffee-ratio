@@ -1,5 +1,7 @@
 # Coffee Ratio
 
+![Screenshot](assets/screenshot.png)
+
 ![GitHub Actions](https://github.com/godly-devotion/coffee-ratio/actions/workflows/main.yml/badge.svg)
 
 Web App: https://godly-devotion.github.io/coffee-ratio/
@@ -41,4 +43,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Support My Work
 
-If you like the apps I've made and would like to support me, please consider purchasing the app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio) or by sponsoring me through [GitHub Sponsors](https://github.com/sponsors/godly-devotion).
+If you like the apps I've made and would like to support me, please consider purchasing the app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio) or by donating through [PayPal](https://www.paypal.com/donate/?business=5DW77LW6V8XX6&no_recurring=0&currency_code=USD).
