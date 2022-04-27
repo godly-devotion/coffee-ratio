@@ -3,8 +3,9 @@
   flex-direction: column;
   gap: 0.5rem;
   justify-content: center;
-  max-width: 22rem;
+  max-width: 30rem;
   padding: 1rem;
+  overflow: hidden;
 }
 
 :host ::ng-deep {
@@ -98,6 +99,13 @@
 .cr-stopwatch-paused {
   // mat green 600
   color: rgb(67 160 71);
+}
+
+.cr-form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .cr-ratio-toggle-group {
