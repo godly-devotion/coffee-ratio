@@ -1,6 +1,6 @@
 # Coffee Ratio
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](.github/images/screenshot.png)
 
 ![GitHub Actions](https://github.com/godly-devotion/coffee-ratio/actions/workflows/main.yml/badge.svg)
 
