@@ -50,7 +50,7 @@ export class CalcEffects {
   updateWaterRatio$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CalcActions.updateWaterRatio),
-      filter(({ waterRatio }) => waterRatio > 2),
+      filter(({ waterRatio }) => waterRatio > 0),
       tap(({ waterRatio }) => localStorage.setItem('cr-water-ratio', waterRatio.toString()))
     ),
   { dispatch: false }

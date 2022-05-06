@@ -49,7 +49,7 @@ export const reducer = createReducer(
     });
   }),
   on(CalcActions.updateBlendRatio, (state, { blendRatio }) => {
-    const ratioVal = blendRatio > 1 ? blendRatio : 2;
+    const ratioVal = blendRatio > 0 ? blendRatio : 0;
 
     return update(state, {
       blendRatio: { $set: ratioVal }
@@ -71,11 +71,11 @@ export const reducer = createReducer(
 );
 
 function calculateGrounds(brewML: number, ratio: number): number {
-  if (ratio <= 2) {
+  if (ratio <= 0) {
     return 0;
   }
 
-  return brewML / (ratio - 2);
+  return brewML / ratio;
 }
 
 // State Selectors

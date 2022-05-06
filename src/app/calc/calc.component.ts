@@ -35,7 +35,7 @@ export class CalcComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   VolumeUnit = VolumeUnit;
   Utils = Utils;
 
-  waterRatioOptions = [...Array(18).keys()].map(startIndex => startIndex + 3);
+  waterRatioOptions = [...Array(18).keys()].map(startIndex => startIndex + 1);
 
   private destroy$ = new Subject<boolean>();
 
