@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/f
 import { distinctUntilChanged, filter, Subject, takeUntil, tap } from 'rxjs';
 import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
 import { Utils } from 'src/app/helpers/utils';
-import { CalcDefaults } from '../data-models/calc-defaults';
+import { CalcDefaults } from 'src/app/data-models/calc-defaults';
 
 @Component({
   selector: 'app-calc',

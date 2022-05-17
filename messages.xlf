@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2951232529867829554" datatype="html">
+        <source>Toggle stopwatch run</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4282466860931199441" datatype="html">
+        <source>Reset stopwatch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="932796069883952087" datatype="html">
+        <source> Water Ratio </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+        <note priority="1" from="description">Header label for ratio of water and coffee bean grounds</note>
+      </trans-unit>
+      <trans-unit id="287185187258842751" datatype="html">
+        <source> Total Brew </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+        <note priority="1" from="description">Header label for total coffee brew</note>
+      </trans-unit>
+      <trans-unit id="8721452246559799900" datatype="html">
+        <source>Total brew in milliliters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1719227946694116788" datatype="html">
+        <source>Total brew in ounces</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="271891981416375535" datatype="html">
+        <source> Blend Ratio </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">93,95</context>
+        </context-group>
+        <note priority="1" from="description">Header label for blending two different coffee bean types</note>
+      </trans-unit>
+      <trans-unit id="7894160115219989243" datatype="html">
+        <source>Toggle blend ratio use</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6689838588216858382" datatype="html">
+        <source> Grounds </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">146,148</context>
+        </context-group>
+        <note priority="1" from="description">Header label for coffee grounds</note>
+      </trans-unit>
+      <trans-unit id="4028253091661597136" datatype="html">
+        <source> Approx. Grounds in Volume </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">172,174</context>
+        </context-group>
+        <note priority="1" from="description">Header label for coffee grounds needed by volume</note>
+      </trans-unit>
+      <trans-unit id="597728075632880838" datatype="html">
+        <source>Based on one cup of ground or whole bean weighing roughly 82 grams</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/calc/calc.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip explaning the conversion of bean grounds from weight to volume</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

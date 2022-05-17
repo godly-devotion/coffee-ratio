@@ -4,7 +4,8 @@
       {{stopwatchDuration | stopwatchDuration}}
     </div>
 
-    <button aria-label="Toggle stopwatch run"
+    <button i18n-aria-label
+            aria-label="Toggle stopwatch run"
             mat-flat-button
             class="cr-stopwatch-run"
             [class.cr-stopwatch-running]="stopwatchStatus === StopwatchStatus.Running"
@@ -14,7 +15,8 @@
       <mat-icon *ngIf="stopwatchStatus !== StopwatchStatus.Running">play_arrow</mat-icon>
     </button>
 
-    <button aria-label="Reset stopwatch"
+    <button i18n-aria-label
+            aria-label="Reset stopwatch"
             mat-flat-button
             class="cr-stopwatch-reset"
             (click)="resetStopwatch.emit()">
@@ -26,7 +28,8 @@
 <form [formGroup]="form"
       class="cr-form">
   <mat-card>
-    <div class="cr-card-title">
+    <div i18n="Header label for ratio of water and coffee bean grounds"
+         class="cr-card-title">
       Water Ratio
     </div>
 
@@ -40,7 +43,8 @@
       </button>
     </div>
 
-    <div class="cr-card-title"
+    <div i18n="Header label for total coffee brew"
+         class="cr-card-title"
          for="totalBrew">
       Total Brew
     </div>
@@ -68,14 +72,16 @@
 
     <div class="cr-ratio-toggle-group"
          style="justify-content: flex-end;">
-      <button aria-label="Total brew in milliliters"
+      <button i18n-aria-label
+              aria-label="Total brew in milliliters"
               mat-icon-button
               [class.cr-selected]="brewUnit === VolumeUnit.ML"
               (click)="updateTotalBrewUnit.emit(VolumeUnit.ML)">
         ml
       </button>
 
-      <button aria-label="Total brew in ounces"
+      <button i18n-aria-label
+              aria-label="Total brew in ounces"
               mat-icon-button
               [class.cr-selected]="brewUnit === VolumeUnit.OZ"
               (click)="updateTotalBrewUnit.emit(VolumeUnit.OZ)">
@@ -84,8 +90,12 @@
     </div>
 
     <div class="cr-card-title">
-      <span>Blend Ratio</span>
-      <mat-slide-toggle aria-label="Toggle blend ratio use"
+      <span i18n="Header label for blending two different coffee bean types">
+        Blend Ratio
+      </span>
+
+      <mat-slide-toggle i18n-aria-label
+                        aria-label="Toggle blend ratio use"
                         [checked]="useBlendRatio"
                         (change)="toggleUseBlendRatio.emit()">
       </mat-slide-toggle>
@@ -131,7 +141,8 @@
 
     <mat-divider></mat-divider>
 
-    <div class="cr-card-title"
+    <div i18n="Header label for coffee grounds"
+         class="cr-card-title"
          style="padding-top: 1rem;">
       Grounds
     </div>
@@ -158,8 +169,12 @@
     </div>
 
     <div class="cr-card-title">
-      <span>Approx. Grounds in Volume</span>
-      <mat-icon matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
+      <span i18n="Header label for coffee grounds needed by volume">
+        Approx. Grounds in Volume
+      </span>
+
+      <mat-icon i18n-matTooltip="Tooltip explaning the conversion of bean grounds from weight to volume"
+                matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
                 matTooltipShowDelay="0"
                 matTooltipPosition="above">
         info
