@@ -1,8 +1,10 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "defaultCollection": "@ngrx/schematics",
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -154,6 +156,5 @@
         }
       }
     }
-  },
-  "defaultProject": "coffee-ratio"
+  }
 }

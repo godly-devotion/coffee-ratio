@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnDestroy, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { distinctUntilChanged, filter, Subject, takeUntil, tap } from 'rxjs';
 import { VolumeUnit, StopwatchStatus } from 'src/app/data-models/enum';
 import { Utils } from 'src/app/helpers/utils';
@@ -44,7 +44,7 @@ export class CalcComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   ) { }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
+    this.form = this.fb.nonNullable.group({
       waterRatio: [this.waterRatio, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.min(3)]],
       brew: [this.brew, [Validators.required, Validators.pattern('^([0-9]+\.?[0-9]*|\.[0-9]+)$'), Validators.min(0)]]
     }, {
@@ -85,13 +85,13 @@ export class CalcComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     this.destroy$.complete();
   }
 
-  canCalc = (form: FormGroup): ValidationErrors | null => {
-    if (!form) {
+  canCalc = (group: AbstractControl): ValidationErrors | null => {
+    if (!group) {
       return null;
     }
 
-    const waterRatioControl = form.get('waterRatio');
-    const brewControl = form.get('brew');
+    const waterRatioControl = group.get('waterRatio');
+    const brewControl = group.get('brew');
 
     if (!waterRatioControl || !brewControl) {
       return null;
