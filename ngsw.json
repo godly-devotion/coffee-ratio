@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1656536585528,
+  "timestamp": 1656719680494,
   "index": "/coffee-ratio/index.html",
   "assetGroups": [
     {
@@ -100,7 +100,7 @@
     "/coffee-ratio/assets/images/splash/apple-splash-750-1334.jpg": "af0708b518eb2f4e1dc614748c2c008429370746",
     "/coffee-ratio/assets/images/splash/apple-splash-828-1792.jpg": "7cb97556297e4a853bc5764f0c91bb96e9f30b1e",
     "/coffee-ratio/favicon.ico": "4ac7d826fbece35296f9cb73c56f76f7818373bc",
-    "/coffee-ratio/index.html": "45cc653aee99c8a98d4dfa3ad5624e85fbf3f859",
+    "/coffee-ratio/index.html": "2604e5e0352bf038bf948f2238870b434b3f3484",
     "/coffee-ratio/main.990854b82a1e76a2.js": "d633d526cca222eff429434fb208ff7556253a5c",
     "/coffee-ratio/manifest.webmanifest": "1e06d70000edd2c6ce1709c5fdc1ffaaae780b98",
     "/coffee-ratio/polyfills.9e64669af33c1b59.js": "ef9ce69452ffdf9613e28fe841074ac6c5f9f67d",
