@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
 
-import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers, metaReducers } from './states';
-import { environment } from '../environments/environment';
-import { MaterialModule } from './app.module.material';
-import { CalcComponent } from './calc/calc.component';
-import { CalcEffects } from './states/calc/calc.effects';
-import { StopwatchEffects } from './states/stopwatch/stopwatch.effects';
-import { StopwatchDurationPipe } from './pipes/stopwatch-duration.pipe';
+import { AppComponent } from './app.component'
+import { ReactiveFormsModule } from '@angular/forms'
+import { ServiceWorkerModule } from '@angular/service-worker'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { EffectsModule } from '@ngrx/effects'
+import { StoreModule } from '@ngrx/store'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+import { reducers, metaReducers } from './states'
+import { environment } from '../environments/environment'
+import { MaterialModule } from './app.module.material'
+import { CalcComponent } from './calc/calc.component'
+import { CalcEffects } from './states/calc/calc.effects'
+import { StopwatchEffects } from './states/stopwatch/stopwatch.effects'
+import { StopwatchDurationPipe } from './pipes/stopwatch-duration.pipe'
 
 @NgModule({
   declarations: [

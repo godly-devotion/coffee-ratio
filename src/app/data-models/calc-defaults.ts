@@ -1,4 +1,4 @@
-import { VolumeUnit } from './enum';
+import { VolumeUnit } from './enum'
 
 export const CalcDefaults = {
   waterRatio: 16,
@@ -6,4 +6,4 @@ export const CalcDefaults = {
   blendRatio: 2,
   totalBrew: 500,
   totalBrewUnit: VolumeUnit.ML
-};
+}
