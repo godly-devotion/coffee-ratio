@@ -26,7 +26,6 @@
   ],
   "html.format.wrapAttributes": "force-aligned",
   "search.exclude": {
-    "**/yarn.lock": true,
     "lib": true
   }
 }
