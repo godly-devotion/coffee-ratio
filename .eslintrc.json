@@ -375,7 +375,10 @@
           }
         ],
         "radix": "error",
-        "semi": ["error", "never"],
+        "semi": [
+          "error",
+          "never"
+        ],
         "semi-spacing": "error",
         "space-before-blocks": "error",
         "space-before-function-paren": [
