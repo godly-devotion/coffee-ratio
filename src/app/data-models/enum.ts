@@ -1,10 +1,10 @@
 export enum StopwatchStatus {
   NotStarted = 0,
   Running,
-  Paused
+  Paused,
 }
 
 export enum VolumeUnit {
   ML = 'ml',
-  OZ = 'oz'
+  OZ = 'oz',
 }

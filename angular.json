@@ -1,10 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "schematicCollections": [
-      "@ngrx/schematics"
-    ]
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -50,7 +45,7 @@
             "outputPath": "dist/coffee-ratio",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -59,12 +54,9 @@
               "src/browserconfig.xml",
               "src/manifest.webmanifest"
             ],
-            "styles": [
-              "src/styles-material-theme.scss",
-              "src/styles-mat.scss",
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
+            "allowedCommonJsDependencies": ["update-immutable"],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },
@@ -95,8 +87,7 @@
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -105,10 +96,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "coffee-ratio:build:production"
+              "buildTarget": "coffee-ratio:build:production"
             },
             "development": {
-              "browserTarget": "coffee-ratio:build:development"
+              "buildTarget": "coffee-ratio:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -116,14 +107,14 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "coffee-ratio:build"
+            "buildTarget": "coffee-ratio:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -133,21 +124,14 @@
               "src/browserconfig.xml",
               "src/manifest.webmanifest"
             ],
-            "styles": [
-              "src/styles-material-theme.scss",
-              "src/styles-mat.scss",
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         },
         "deploy": {
@@ -155,6 +139,9 @@
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": ["@angular-eslint/schematics", "@ngrx/schematics"]
   },
   "schematics": {
     "@angular-eslint/schematics:application": {
