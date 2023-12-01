@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1696726093083,
+  "timestamp": 1701465430352,
   "index": "/coffee-ratio/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/coffee-ratio/favicon.ico",
         "/coffee-ratio/index.html",
-        "/coffee-ratio/main.c41203ef47b4afc2.js",
+        "/coffee-ratio/main.4e6a654e429e22fb.js",
         "/coffee-ratio/manifest.webmanifest",
-        "/coffee-ratio/polyfills.e099cf39ce5ade97.js",
-        "/coffee-ratio/runtime.e63b97180409cc32.js",
-        "/coffee-ratio/styles.b2499dc3619cf022.css"
+        "/coffee-ratio/polyfills.48cf2073caa0ce41.js",
+        "/coffee-ratio/runtime.30695f24e9e68506.js",
+        "/coffee-ratio/styles.d27a29253a5be4b1.css"
       ],
       "patterns": []
     },
@@ -100,12 +100,12 @@
     "/coffee-ratio/assets/images/splash/apple-splash-750-1334.jpg": "af0708b518eb2f4e1dc614748c2c008429370746",
     "/coffee-ratio/assets/images/splash/apple-splash-828-1792.jpg": "7cb97556297e4a853bc5764f0c91bb96e9f30b1e",
     "/coffee-ratio/favicon.ico": "4ac7d826fbece35296f9cb73c56f76f7818373bc",
-    "/coffee-ratio/index.html": "3ab03c291b86773ccdc226a1839e11a59f69ad8f",
-    "/coffee-ratio/main.c41203ef47b4afc2.js": "e3be619e8744be976a29dd40652ec08cc2531fca",
+    "/coffee-ratio/index.html": "2e52d7ee0f819f9ed9ba9351f7921cc9744d9236",
+    "/coffee-ratio/main.4e6a654e429e22fb.js": "e81081e55c5cda97c3951e362459281e6a0bbdc9",
     "/coffee-ratio/manifest.webmanifest": "1e06d70000edd2c6ce1709c5fdc1ffaaae780b98",
-    "/coffee-ratio/polyfills.e099cf39ce5ade97.js": "97bd8b4e46ef995f11e18eb89bc2c18135d1f1f5",
-    "/coffee-ratio/runtime.e63b97180409cc32.js": "0e18796e87b11b14024b1bc6cdfeafc95d30fdd3",
-    "/coffee-ratio/styles.b2499dc3619cf022.css": "54fa2acb70d669b42e5ce412f4013b4694dead9b"
+    "/coffee-ratio/polyfills.48cf2073caa0ce41.js": "a901e8a2e2accb90b8fb53e77d87f7c2f072b8ab",
+    "/coffee-ratio/runtime.30695f24e9e68506.js": "9f6cdb9fd60601ae79de6c8b6f512dde9d54bd81",
+    "/coffee-ratio/styles.d27a29253a5be4b1.css": "c20218fd8d5a15148151bef7e0ecbb22ad66a4ec"
   },
   "navigationUrls": [
     {
