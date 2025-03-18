@@ -1,4 +1,4 @@
-import { VolumeUnit } from 'src/app/data-models/enum';
+import { VolumeUnit } from './volume-unit.model';
 
 export class Utils {
   public static roundDecimal(value: number): number {

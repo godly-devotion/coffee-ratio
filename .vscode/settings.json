@@ -1,24 +1,9 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "[typescript][html][scss][json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.options": {
-    "extensions": [".ts", ".html"]
-  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
     "html"
-  ],
-  "search.exclude": {
-    "**/package-lock.json": true,
-    "lib": true
-  }
+  ]
 }

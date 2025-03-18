@@ -1,6 +1,5 @@
 mat-card.mat-mdc-card {
   overflow: hidden;
-  background: rgb(30 30 30);
   border-radius: 0.8rem;
 }
 
@@ -18,7 +17,6 @@ mat-icon.mat-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
 }
 
 .mat-mdc-unelevated-button > mat-icon.mat-icon {

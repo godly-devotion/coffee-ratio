@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'stopwatchDuration',
-  standalone: true,
 })
 export class StopwatchDurationPipe implements PipeTransform {
   transform(value: number): string {

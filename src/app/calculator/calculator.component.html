@@ -1,0 +1,231 @@
+<form
+  [formGroup]="form"
+  class="cr-form"
+>
+  <mat-card>
+    <mat-card-content>
+      <div class="mb-4 flex items-center justify-between">Water Ratio</div>
+
+      <div
+        class="x-scroll-shadows mb-4 flex justify-between gap-4 overflow-x-auto overflow-y-hidden rounded-3xl"
+      >
+        @for (ratio of waterRatioOptions; track ratio) {
+          <button
+            mat-icon-button
+            [attr.id]="`waterRatio${ratio}`"
+            [ngClass]="{
+              'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+                waterRatio() === ratio,
+            }"
+            (click)="updateWaterRatio(ratio)"
+          >
+            1:{{ ratio }}
+          </button>
+        }
+      </div>
+
+      <div
+        class="mb-4 flex items-center justify-between"
+        for="totalBrew"
+      >
+        Total Brew
+      </div>
+
+      <div class="cr-brew-input flex items-baseline text-3xl">
+        <mat-form-field
+          floatLabel="auto"
+          appearance="fill"
+        >
+          <input
+            id="totalBrew"
+            class="text-3xl!"
+            matInput
+            inputmode="numeric"
+            pattern="[0-9]+\.?[0-9]*|\.[0-9]+"
+            type="number"
+            min="0"
+            step="10"
+            placeholder="0"
+            formControlName="brew"
+            autocomplete="off"
+          />
+
+          <span
+            matSuffix
+            class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+          >
+            {{ brewUnit() }}
+          </span>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-4 flex justify-end gap-4 rounded-3xl">
+        <button
+          aria-label="Total brew in milliliters"
+          mat-icon-button
+          [ngClass]="{
+            'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+              brewUnit() === VolumeUnit.ML,
+          }"
+          (click)="updateTotalBrewUnit(VolumeUnit.ML)"
+        >
+          ml
+        </button>
+
+        <button
+          aria-label="Total brew in ounces"
+          mat-icon-button
+          [ngClass]="{
+            'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+              brewUnit() === VolumeUnit.OZ,
+          }"
+          (click)="updateTotalBrewUnit(VolumeUnit.OZ)"
+        >
+          oz
+        </button>
+      </div>
+
+      <div class="mb-4 flex items-center justify-between">
+        <span>Blend Ratio</span>
+        <mat-slide-toggle
+          aria-label="Toggle blend ratio use"
+          [checked]="useBlendRatio()"
+          (change)="toggleUseBlendRatio()"
+        >
+        </mat-slide-toggle>
+      </div>
+
+      @if (useBlendRatio()) {
+        <div class="mb-4 flex justify-between gap-4 rounded-3xl">
+          <button
+            mat-icon-button
+            [disabled]="!useBlendRatio()"
+            [ngClass]="{
+              'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+                blendRatio() === 2,
+            }"
+            (click)="updateBlendRatio(2)"
+          >
+            1:1
+          </button>
+
+          <button
+            mat-icon-button
+            [disabled]="!useBlendRatio()"
+            [ngClass]="{
+              'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+                blendRatio() === 3,
+            }"
+            (click)="updateBlendRatio(3)"
+          >
+            1:2
+          </button>
+
+          <button
+            mat-icon-button
+            [disabled]="!useBlendRatio()"
+            [ngClass]="{
+              'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+                blendRatio() === 4,
+            }"
+            (click)="updateBlendRatio(4)"
+          >
+            1:3
+          </button>
+
+          <button
+            mat-icon-button
+            [disabled]="!useBlendRatio()"
+            [ngClass]="{
+              'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+                blendRatio() === 5,
+            }"
+            (click)="updateBlendRatio(5)"
+          >
+            1:4
+          </button>
+
+          <button
+            mat-icon-button
+            [disabled]="!useBlendRatio()"
+            [ngClass]="{
+              'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
+                blendRatio() === 6,
+            }"
+            (click)="updateBlendRatio(6)"
+          >
+            1:5
+          </button>
+        </div>
+      }
+      <mat-divider />
+
+      <div class="mb-4 flex items-center justify-between pt-4">Grounds</div>
+
+      @if (useBlendRatio()) {
+        <div class="text-right text-3xl">
+          <span>{{ Utils.roundDecimal(grounds() / blendRatio()) }}</span>
+          <span
+            class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+            >g</span
+          >
+        </div>
+
+        <div class="text-right text-3xl">
+          <span class="cr-card-math">﹢</span>
+          <span>{{
+            Utils.roundDecimal((grounds() * (blendRatio() - 1)) / blendRatio())
+          }}</span>
+          <span
+            class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+            >g</span
+          >
+        </div>
+      }
+      <div
+        class="text-right text-3xl"
+        style="margin-bottom: 1rem"
+      >
+        @if (useBlendRatio()) {
+          <span class="cr-card-math">﹦</span>
+        }
+        <span>{{ grounds() }}</span>
+        <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+          >g</span
+        >
+      </div>
+
+      <div class="mb-4 flex items-center justify-between">
+        <span>Approx. Grounds in Volume</span>
+        <mat-icon
+          matTooltip="Based on one cup of ground or whole bean weighing roughly 82 grams"
+          matTooltipShowDelay="0"
+          matTooltipPosition="above"
+        >
+          info
+        </mat-icon>
+      </div>
+
+      <div class="text-right text-3xl">
+        <span>{{ groundsInML() }}</span>
+        <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+          >ml</span
+        >
+      </div>
+
+      <div class="text-right text-3xl">
+        <span>{{ groundsInOunces() }}</span>
+        <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+          >oz</span
+        >
+      </div>
+
+      <div class="text-right text-3xl">
+        <span>{{ groundsInCups() }}</span>
+        <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
+          >cups</span
+        >
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

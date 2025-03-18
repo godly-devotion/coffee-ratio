@@ -12,23 +12,23 @@ updates:
     groups:
       angular:
         patterns:
-        - "@angular*"
+          - "@angular*"
         update-types:
-        - "minor"
-        - "patch"
+          - "minor"
+          - "patch"
       ngrx:
         patterns:
-        - "@ngrx*"
-        - "rxjs"
+          - "@ngrx*"
+          - "rxjs"
         update-types:
-        - "minor"
-        - "patch"
+          - "minor"
+          - "patch"
       typescript-eslint:
         patterns:
-        - "@typescript-eslint*"
+          - "typescript-eslint*"
         update-types:
-        - "minor"
-        - "patch"
+          - "minor"
+          - "patch"
 
   - package-ecosystem: "github-actions"
     directory: "/"

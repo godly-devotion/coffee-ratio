@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+html,
+body {
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.x-scroll-shadows {
+  background:
+    /* shadow covers */
+    linear-gradient(90deg, rgb(53 53 53), rgba(53 53 53 / 0%)),
+    linear-gradient(270deg, rgb(53 53 53), rgba(53 53 53 / 0%) 70%),
+    /* shadow */ linear-gradient(90deg, rgba(30 30 30), rgb(53 53 53)),
+    linear-gradient(270deg, rgba(30 30 30), rgb(53 53 53));
+  background-color: rgba(255 255 255 / 10%);
+  background-repeat: no-repeat;
+  background-position:
+    top left,
+    top right,
+    top left,
+    top right;
+  background-size:
+    40px 100%,
+    40px 100%,
+    20px 100%,
+    20px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+@import "./styles-mat-mdc.css";

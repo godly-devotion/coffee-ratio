@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-content>
+    <div class="grid grid-cols-2 items-center gap-2">
+      <div class="col-span-2 text-center text-5xl font-medium">
+        {{ duration() | stopwatchDuration }}
+      </div>
+
+      <button
+        aria-label="Toggle stopwatch run"
+        mat-flat-button
+        [ngClass]="{
+          'text-red-500!': status() === StopwatchStatus.Running,
+          'text-green-500!': status() === StopwatchStatus.Paused,
+        }"
+        (click)="toggleRun()"
+      >
+        @if (status() === StopwatchStatus.Running) {
+          <mat-icon>pause</mat-icon>
+        } @else {
+          <mat-icon>play_arrow</mat-icon>
+        }
+      </button>
+
+      <button
+        aria-label="Reset stopwatch"
+        mat-flat-button
+        (click)="reset()"
+      >
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
