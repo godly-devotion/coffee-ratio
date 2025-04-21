@@ -2,9 +2,9 @@
 
 ![Screenshot](.github/images/screenshot.png)
 
-![GitHub Actions](https://github.com/godly-devotion/coffee-ratio/actions/workflows/main.yml/badge.svg)
+![GitHub Actions](https://github.com/itsjoshpark/coffee-ratio/actions/workflows/main.yml/badge.svg)
 
-Web App: https://godly-devotion.github.io/coffee-ratio/
+Web App: https://itsjoshpark.github.io/coffee-ratio/
 
 Calculate amount of beans needed for home brewed coffee, even without a scale! Built with full PWA (Progressive Web App) support, it works even without an internet connection.
 
@@ -61,8 +61,3 @@ This will compile your project and store the build artifacts in the `dist/` dire
 ### Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-
-## Support My Work
-
-If you like the apps I've made and would like to support me, please consider purchasing the app on the [Google Play Store](https://play.google.com/store/apps/details?id=com.godly_devotion.coffee_ratio) or by donating through [PayPal](https://www.paypal.com/donate/?business=5DW77LW6V8XX6&no_recurring=0&currency_code=USD).
