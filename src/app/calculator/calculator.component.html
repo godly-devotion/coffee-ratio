@@ -15,9 +15,9 @@
             [attr.id]="`waterRatio${ratio}`"
             [ngClass]="{
               'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-                waterRatio() === ratio,
+                store.waterRatio() === ratio,
             }"
-            (click)="updateWaterRatio(ratio)"
+            (click)="store.updateWaterRatio(ratio)"
           >
             1:{{ ratio }}
           </button>
@@ -54,7 +54,7 @@
             matSuffix
             class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
           >
-            {{ brewUnit() }}
+            {{ store.brewUnit() }}
           </span>
         </mat-form-field>
       </div>
@@ -65,9 +65,9 @@
           mat-icon-button
           [ngClass]="{
             'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-              brewUnit() === VolumeUnit.ML,
+              store.brewUnit() === VolumeUnit.ML,
           }"
-          (click)="updateTotalBrewUnit(VolumeUnit.ML)"
+          (click)="store.updateTotalBrewUnit(VolumeUnit.ML)"
         >
           ml
         </button>
@@ -77,9 +77,9 @@
           mat-icon-button
           [ngClass]="{
             'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-              brewUnit() === VolumeUnit.OZ,
+              store.brewUnit() === VolumeUnit.OZ,
           }"
-          (click)="updateTotalBrewUnit(VolumeUnit.OZ)"
+          (click)="store.updateTotalBrewUnit(VolumeUnit.OZ)"
         >
           oz
         </button>
@@ -89,70 +89,70 @@
         <span>Blend Ratio</span>
         <mat-slide-toggle
           aria-label="Toggle blend ratio use"
-          [checked]="useBlendRatio()"
-          (change)="toggleUseBlendRatio()"
+          [checked]="store.useBlendRatio()"
+          (change)="store.toggleUseBlendRatio()"
         >
         </mat-slide-toggle>
       </div>
 
-      @if (useBlendRatio()) {
+      @if (store.useBlendRatio()) {
         <div class="mb-4 flex justify-between gap-4 rounded-3xl">
           <button
             mat-icon-button
-            [disabled]="!useBlendRatio()"
+            [disabled]="!store.useBlendRatio()"
             [ngClass]="{
               'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-                blendRatio() === 2,
+                store.blendRatio() === 2,
             }"
-            (click)="updateBlendRatio(2)"
+            (click)="store.updateBlendRatio(2)"
           >
             1:1
           </button>
 
           <button
             mat-icon-button
-            [disabled]="!useBlendRatio()"
+            [disabled]="!store.useBlendRatio()"
             [ngClass]="{
               'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-                blendRatio() === 3,
+                store.blendRatio() === 3,
             }"
-            (click)="updateBlendRatio(3)"
+            (click)="store.updateBlendRatio(3)"
           >
             1:2
           </button>
 
           <button
             mat-icon-button
-            [disabled]="!useBlendRatio()"
+            [disabled]="!store.useBlendRatio()"
             [ngClass]="{
               'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-                blendRatio() === 4,
+                store.blendRatio() === 4,
             }"
-            (click)="updateBlendRatio(4)"
+            (click)="store.updateBlendRatio(4)"
           >
             1:3
           </button>
 
           <button
             mat-icon-button
-            [disabled]="!useBlendRatio()"
+            [disabled]="!store.useBlendRatio()"
             [ngClass]="{
               'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-                blendRatio() === 5,
+                store.blendRatio() === 5,
             }"
-            (click)="updateBlendRatio(5)"
+            (click)="store.updateBlendRatio(5)"
           >
             1:4
           </button>
 
           <button
             mat-icon-button
-            [disabled]="!useBlendRatio()"
+            [disabled]="!store.useBlendRatio()"
             [ngClass]="{
               'bg-[var(--mat-sys-primary)]! font-semibold text-[var(--mat-sys-on-primary)]!':
-                blendRatio() === 6,
+                store.blendRatio() === 6,
             }"
-            (click)="updateBlendRatio(6)"
+            (click)="store.updateBlendRatio(6)"
           >
             1:5
           </button>
@@ -162,9 +162,11 @@
 
       <div class="mb-4 flex items-center justify-between pt-4">Grounds</div>
 
-      @if (useBlendRatio()) {
+      @if (store.useBlendRatio()) {
         <div class="text-right text-3xl">
-          <span>{{ Utils.roundDecimal(grounds() / blendRatio()) }}</span>
+          <span>{{
+            Utils.roundDecimal(store.grounds() / store.blendRatio())
+          }}</span>
           <span
             class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
             >g</span
@@ -174,7 +176,9 @@
         <div class="text-right text-3xl">
           <span class="cr-card-math">﹢</span>
           <span>{{
-            Utils.roundDecimal((grounds() * (blendRatio() - 1)) / blendRatio())
+            Utils.roundDecimal(
+              (store.grounds() * (store.blendRatio() - 1)) / store.blendRatio()
+            )
           }}</span>
           <span
             class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
@@ -186,10 +190,10 @@
         class="text-right text-3xl"
         style="margin-bottom: 1rem"
       >
-        @if (useBlendRatio()) {
+        @if (store.useBlendRatio()) {
           <span class="cr-card-math">﹦</span>
         }
-        <span>{{ grounds() }}</span>
+        <span>{{ store.grounds() }}</span>
         <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
           >g</span
         >
@@ -207,21 +211,21 @@
       </div>
 
       <div class="text-right text-3xl">
-        <span>{{ groundsInML() }}</span>
+        <span>{{ store.groundsInML() }}</span>
         <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
           >ml</span
         >
       </div>
 
       <div class="text-right text-3xl">
-        <span>{{ groundsInOunces() }}</span>
+        <span>{{ store.groundsInOunces() }}</span>
         <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
           >oz</span
         >
       </div>
 
       <div class="text-right text-3xl">
-        <span>{{ groundsInCups() }}</span>
+        <span>{{ store.groundsInCups() }}</span>
         <span class="ml-1.5 text-2xl font-medium text-[var(--mat-sys-primary)]"
           >cups</span
         >
